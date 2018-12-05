@@ -1,0 +1,25 @@
+{
+    "name": "logty_la",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack --mode development",
+        "build": "webpack --mode production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/akinsbo/gmbshow-frontend-services-logty_la.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/issues"
+    },
+    "homepage": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la#readme",
+    "devDependencies": {
+        "webpack": "^4.27.0",
+        "webpack-cli": "^3.1.2"
+    }
+}
