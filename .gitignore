@@ -16,7 +16,6 @@ yarn-error.log*
 
 # auto-generated
 .cache/
-public
 
 # Mac files
 .DS_Store
