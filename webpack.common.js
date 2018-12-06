@@ -1,7 +1,31 @@
+const CleanWebpackPlugin = require("clean-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const webpack = require("webpack")
+
 module.exports = {
-  entry: "./src/index.tsx",
+  // mode: "development || "production",
+  entry: {
+    a: "./src/pages/a.tsx",
+    b: "./src/pages/b.tsx",
+    c: "./src/pages/c.tsx"
+  },
+  plugins: [
+    new CleanWebpackPlugin(["dist"]),
+    new HtmlWebpackPlugin({
+      template: "src/index.html"
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      // https://github.com/webpack/webpack/blob/master/examples/many-pages/webpack.config.js
+      maxInitialRequests: 20, // for HTTP2
+      maxAsyncRequests: 20 // for HTTP2
+    }
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: __dirname + "/dist"
   },
 
