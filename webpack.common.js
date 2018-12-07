@@ -1,6 +1,5 @@
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const webpack = require("webpack")
 
 module.exports = {
   // mode: "development || "production",
@@ -13,20 +12,22 @@ module.exports = {
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       template: "public/index.html"
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ],
   optimization: {
     splitChunks: {
-      chunks: "all",
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: "vendor",
+          chunks: "all"
+        }
+      },
+      // chunks: "all",
       // https://github.com/webpack/webpack/blob/master/examples/many-pages/webpack.config.js
-      maxInitialRequests: 20, // for HTTP2
+      maxInitialRequests: 20, // forcs HTTP2(HTTP1 allows max of 6)
       maxAsyncRequests: 20 // for HTTP2
     }
-  },
-  output: {
-    filename: "[name].bundle.js",
-    path: __dirname + "/dist"
   },
 
   // Enable sourcemaps for debugging webpack's output.
