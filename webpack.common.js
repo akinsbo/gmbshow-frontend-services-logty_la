@@ -3,16 +3,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   // mode: "development || "production",
-  entry: {
-    a: "./src/pages/a.tsx",
-    b: "./src/pages/b.tsx",
-    c: "./src/pages/c.tsx"
-  },
+  entry: "./src/pages/index.tsx",
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       template: "public/index.html"
-    })
+    }),
+    // HashedModuleIdsPlugin plugin will cause hashes to be based on the relative path of the module
+    new webpack.HashedModuleIdsPlugin() // so that file hashes don't change unexpectedly
   ],
   optimization: {
     splitChunks: {
@@ -25,8 +23,9 @@ module.exports = {
       },
       chunks: "all",
       // https://github.com/webpack/webpack/blob/master/examples/many-pages/webpack.config.js
-      maxInitialRequests: 20, // forcs HTTP2(HTTP1 allows max of 6)
-      maxAsyncRequests: 20 // for HTTP2
+      maxInitialRequests: 50, // forcs HTTP2(HTTP1 allows max of 6)
+      maxAsyncRequests: 20, // for HTTP2
+      minSize: 0
     }
   },
 
