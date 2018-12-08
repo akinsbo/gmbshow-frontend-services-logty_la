@@ -23,7 +23,7 @@ module.exports = {
           chunks: "all"
         }
       },
-      // chunks: "all",
+      chunks: "all",
       // https://github.com/webpack/webpack/blob/master/examples/many-pages/webpack.config.js
       maxInitialRequests: 20, // forcs HTTP2(HTTP1 allows max of 6)
       maxAsyncRequests: 20 // for HTTP2

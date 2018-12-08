@@ -1,3 +1,4 @@
+# Editor
 .vscode
 
 #  Build
@@ -27,3 +28,7 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
+# others
+.dustbin
+dustbin
+.todo
