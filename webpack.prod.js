@@ -22,17 +22,18 @@ module.exports = merge(common, {
         sourceMap: true // set to true if you want JS source maps
       }),
       new OptimizeCSSAssetsPlugin({})
-    ],
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: "styles",
-          test: /\.css$/,
-          chunks: "all",
-          enforce: true
-        }
-      }
-    }
+    ]
+    // Uncomment to extract all css into one file/chunk cached
+    // splitChunks: {
+    //   cacheGroups: {
+    //     styles: {
+    //       name: "styles",
+    //       test: /\.css$/,
+    //       chunks: "all",
+    //       enforce: true
+    //     }
+    //   }
+    // }
   },
   plugins: [
     // HashedModuleIdsPlugin plugin will cause hashes to be based on the relative path of the module

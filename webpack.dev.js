@@ -12,7 +12,8 @@ module.exports = merge(common, {
     contentBase: "./dist",
     hot: true,
     compress: true,
-    port: 9000
+    port: 9000,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -23,7 +24,8 @@ module.exports = merge(common, {
   ],
   output: {
     filename: "[name].bundle.js",
-    path: __dirname + "/dist"
+    path: __dirname + "/dist",
+    publicPath: "/"
   },
   module: {
     rules: [
