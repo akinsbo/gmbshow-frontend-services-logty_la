@@ -31,7 +31,10 @@ module.exports = merge(common, {
           // the order matters. Use postcss-loader as after style-loader and css-loader
           "style-loader",
           { loader: "css-loader", options: { importLoaders: 1 } },
-          "postcss-loader",
+          {
+            loader: "postcss-loader",
+            options: { config: { path: "./postcss.config.js" } }
+          },
           "sass-loader"
         ]
       }
