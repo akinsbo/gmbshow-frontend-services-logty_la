@@ -20,7 +20,7 @@ module.exports = merge(common, {
     })
   ],
   output: {
-    filename: "[name].[hash].js",
+    filename: "[name].bundle.js",
     path: __dirname + "/dist"
   },
   module: {

@@ -14,7 +14,7 @@ export interface AppProps {
 export class App extends React.Component<AppProps, {}> {
   render() {
     console.log(Data)
-
+    console.log("this is main app.js")
     return (
       <div className={styles.hello}>
         <nav>
