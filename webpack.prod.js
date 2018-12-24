@@ -1,5 +1,7 @@
 const merge = require("webpack-merge")
 const common = require("./webpack.common.js")
+const webpack = require("webpack")
+
 // To minimize css
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
@@ -20,19 +22,36 @@ module.exports = merge(common, {
         sourceMap: true // set to true if you want JS source maps
       }),
       new OptimizeCSSAssetsPlugin({})
-    ]
+    ],
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: "styles",
+          test: /\.css$/,
+          chunks: "all",
+          enforce: true
+        }
+      }
+    }
   },
   plugins: [
+    // HashedModuleIdsPlugin plugin will cause hashes to be based on the relative path of the module
+    new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css"
     })
   ],
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
+        ]
       }
     ]
   }

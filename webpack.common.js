@@ -3,22 +3,31 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   // mode: "development || "production",
-  entry: "./src/pages/index.tsx",
+  entry: {
+    main: "./src/pages/index.tsx"
+  },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       template: "public/index.html"
-    }),
-    // HashedModuleIdsPlugin plugin will cause hashes to be based on the relative path of the module
-    new webpack.HashedModuleIdsPlugin() // so that file hashes don't change unexpectedly
+    })
   ],
   optimization: {
+    runtimeChunk: "single",
     splitChunks: {
+      name(module) {
+        // get the name. E.g. node_modules/packageName/not/this/part.js
+        // or node_modules/packageName
+        const packageName = module.context.match(
+          /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+        )[1]
+
+        // npm package names are URL-safe, but some servers don't like @ symbols
+        return `npm.${packageName.replace("@", "")}`
+      },
       cacheGroups: {
         vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-          name: "vendor",
-          chunks: "all"
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/
         }
       },
       chunks: "all",
@@ -44,10 +53,6 @@ module.exports = {
 
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      },
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader"]
