@@ -2,8 +2,9 @@ import * as React from "react"
 import * as styles from "./App.css"
 import astImage from "./../images/astronaut.png"
 import Data from "./../data.xml"
-import { Link, Route } from "react-router-dom"
+import { Link, Route, Switch } from "react-router-dom"
 import SecondPage from "./SecondPage"
+import ThirdPage from "./ThirdPage"
 
 export interface AppProps {
   compiler: string;
@@ -20,6 +21,7 @@ export class App extends React.Component<AppProps, {}> {
       <div className={styles.hello}>
         <nav>
           <Link to="/page2">SecondPage</Link>
+          <Link to="/page3">ThirdPage</Link>
         </nav>
         <h1>
           Hello from {this.props.compiler} and {this.props.framework}! And it
@@ -27,7 +29,10 @@ export class App extends React.Component<AppProps, {}> {
         </h1>
         <div>
           <h1>My Custom React app</h1>
-          <Route path="/page2" component={SecondPage} />
+          <Switch>
+            <Route path="/page2" component={SecondPage} />
+            <Route path="/page3" component={ThirdPage} />
+          </Switch>
         </div>
         <img src={astImage} alt="astImage" />
       </div>
