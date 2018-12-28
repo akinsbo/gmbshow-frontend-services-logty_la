@@ -20,7 +20,16 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("development") // '"development"'
+      }
     })
+    //use as:
+    // /** main.js */
+
+    // console.log(process.env.NODE_ENV); // "development"
   ],
   output: {
     filename: "[name].bundle.js",
