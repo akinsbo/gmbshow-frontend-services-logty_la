@@ -1,0 +1,52 @@
+# Editor
+.vscode
+.idea
+
+#  Build
+build
+dist
+
+# Dependency directories
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# auto-generated
+.cache/
+
+# testing
+coverage
+
+# Mac files
+.DS_Store
+
+# Yarn
+yarn-error.log
+.pnp/
+.pnp.js
+# Yarn Integrity file
+.yarn-integrity
+
+# others
+.dustbin
+dustbin
+.todo
+.sonarlint
+
+# cypress
+cypress/integration/examples
+cypress/fixtures/example.json
+cypress/screenshots
+cypress/videos
+out.js
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
