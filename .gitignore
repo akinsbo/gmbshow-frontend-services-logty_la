@@ -41,6 +41,9 @@ dustbin
 # cypress
 cypress/integration/examples
 cypress/fixtures/example.json
+cypress/screenshots
+cypress/videos
+out.js
 
 # misc
 .env.local
