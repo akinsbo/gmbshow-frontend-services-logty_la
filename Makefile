@@ -3,3 +3,6 @@ start:
 
 build:
 	npm run build
+
+bdd:
+	npx cypress open

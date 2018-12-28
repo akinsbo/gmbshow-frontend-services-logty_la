@@ -10,18 +10,31 @@ module.exports = merge(common, {
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist",
-    hot: true
+    hot: true,
+    compress: true,
+    port: 9000,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("development") // '"development"'
+      }
     })
+    //use as:
+    // /** main.js */
+
+    // console.log(process.env.NODE_ENV); // "development"
   ],
   output: {
-    filename: "[name].[hash].js",
-    path: __dirname + "/dist"
+    filename: "[name].bundle.js",
+    path: __dirname + "/dist",
+    publicPath: "/"
   },
   module: {
     rules: [

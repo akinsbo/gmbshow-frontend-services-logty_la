@@ -1,5 +1,6 @@
 # Editor
 .vscode
+.idea
 
 #  Build
 build
@@ -18,6 +19,9 @@ yarn-error.log*
 # auto-generated
 .cache/
 
+# testing
+coverage
+
 # Mac files
 .DS_Store
 
@@ -33,3 +37,16 @@ yarn-error.log
 dustbin
 .todo
 .sonarlint
+
+# cypress
+cypress/integration/examples
+cypress/fixtures/example.json
+cypress/screenshots
+cypress/videos
+out.js
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
