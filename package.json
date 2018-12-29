@@ -7,24 +7,21 @@
         "start": "webpack-dev-server -p --progress --config webpack.dev.js --mode development --open --hot",
         "build": "webpack -p --progress --config webpack.prod.js --mode production",
         "serve": "http-server ./dist -p 3000",
-        "bdd": "cypress run",
+        "cypress": "cypress run",
         "cypress:open": "cypress open"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/akinsbo/gmbshow-frontend-services-logty_la.git"
+    "dependencies": {
+        "@types/node": "^10.12.18",
+        "@types/react": "^16.7.13",
+        "@types/react-dom": "^16.0.11",
+        "@types/react-router-dom": "^4.3.1",
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3",
+        "react-router": "^4.3.1",
+        "react-router-dom": "^4.3.1"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/issues"
-    },
-    "cypress-cucumber-preprocessor": {
-        "nonGlobalStepDefinitions": true
-    },
-    "homepage": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la#readme",
     "devDependencies": {
+        "@cypress/browserify-preprocessor": "^1.1.2",
         "@cypress/webpack-preprocessor": "^4.0.2",
         "@types/chai": "^4.1.7",
         "@types/cucumber": "^4.0.4",
@@ -63,14 +60,18 @@
         "webpack-merge": "^4.1.4",
         "xml-loader": "^1.2.1"
     },
-    "dependencies": {
-        "@types/node": "^10.12.18",
-        "@types/react": "^16.7.13",
-        "@types/react-dom": "^16.0.11",
-        "@types/react-router-dom": "^4.3.1",
-        "react": "^16.6.3",
-        "react-dom": "^16.6.3",
-        "react-router": "^4.3.1",
-        "react-router-dom": "^4.3.1"
-    }
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/akinsbo/gmbshow-frontend-services-logty_la.git"
+    },
+    "keywords": [],
+    "author": "Olaolu Akinsete",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/issues"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true
+    },
+    "homepage": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la#readme"
 }

@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { After, Before, Given, Then } from "cypress-cucumber-preprocessor/steps"
 // import {
 //   visit,
@@ -7,7 +9,7 @@ import { After, Before, Given, Then } from "cypress-cucumber-preprocessor/steps"
 // } from '../action'
 import pageFactory from "../../support/page_objects/PageFactory"
 
-Given("the user is on the {string}", string => {
+Given("the user is on the {string}", (string: string) => {
   const pageUnderTest = pageFactory(string)
   cy.visit(pageUnderTest.basepage.getUrl())
 })
