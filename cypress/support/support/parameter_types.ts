@@ -2,6 +2,7 @@ import { defineParameterType } from "cucumber"
 
 defineParameterType({
   regexp: /(\w+)page/,
+  //typescript requires transformer propertu
   transformer: s => s,
   name: "webpage"
 })

@@ -3,6 +3,7 @@ Feature: Manage Pages
     In order to enjoy interesting videos
     The user should be able to select videos from a homepage
 
+    @focus
     Scenario: View homepage
         Given the user is on the "homepage"
 # # Then the page title should be "homepage"

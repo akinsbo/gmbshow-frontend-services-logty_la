@@ -14,9 +14,9 @@ Given("the user is on the {string}", (string: string) => {
   cy.visit(pageUnderTest.basepage.getUrl())
 })
 
-// Then("the page title should be {string}", async string => {
-//   // await checkPageTitle(string)
-// })
+Then("the page title should be {string}", (string: string) => {
+  cy.title().should("include", string)
+})
 
 // Then(
 //   'the user should be able to see a(n) {component}',

@@ -4,5 +4,8 @@ start:
 build:
 	npm run build
 
+bdd-open:
+	npm run cypress:open
+
 bdd:
-	npx cypress open
+	npm run cypress:run
