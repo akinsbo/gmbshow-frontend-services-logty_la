@@ -13,6 +13,12 @@
         "moduleResolution": "node",
         "keyofStringsOnly": true
     },
+    "awesomeTypescriptLoaderOptions": {
+        "useWebpackText": true,
+        "useTranspileModule": true,
+        "doTypeCheck": true,
+        "forkChecker": true
+    },
     "exclude": [
         "build",
         "scripts",

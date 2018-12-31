@@ -4,12 +4,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 module.exports = {
   // mode: "development || "production",
   entry: {
-    main: "./src/pages/index.tsx"
+    main: "./src/core/index.tsx"
   },
   plugins: [
     // new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      template: "public/index.html"
+      template: "public/index.html",
+      favicon: "public/icons/favicon.ico"
     })
   ],
   optimization: {
@@ -54,20 +55,20 @@ module.exports = {
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
+        test: /\.(ico|png|svg|jpg|gif)$/,
+        use: ["file-loader?name=[name].[ext]"] // retain original filename
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ["file-loader"]
+        use: ["file-loader?name=[name].[ext]"] // retain original filename
       },
       {
         test: /\.(csv|tsv)$/,
-        use: ["csv-loader"]
+        use: ["csv-loader?name=[name].[ext]"]
       },
       {
         test: /\.xml$/,
-        use: ["xml-loader"]
+        use: ["xml-loader?name=[name].[ext]"]
       }
     ]
   }

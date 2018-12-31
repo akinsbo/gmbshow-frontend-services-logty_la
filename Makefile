@@ -9,3 +9,8 @@ bdd-open:
 
 bdd:
 	npm run cypress:run
+
+prod:
+	npm run build
+	npm run serve
+	chrome http://localhost:3000
