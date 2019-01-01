@@ -1,9 +1,10 @@
 import * as React from "react"
 
-const SecondPage = () => (
+// Take children as props and wrap them
+const Layout = () => (
   <div>
     <h1>This is the second page</h1>
   </div>
 )
 
-export default SecondPage
+export default Layout

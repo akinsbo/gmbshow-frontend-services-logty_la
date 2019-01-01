@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 module.exports = {
   // mode: "development || "production",
   entry: {
-    main: "./src/pages/index.tsx"
+    main: "./src/core/index.tsx"
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
@@ -77,8 +77,8 @@ module.exports = {
   // This is important because it allows us to avoid bundling all of our
   // dependencies, which allows browsers to cache those libraries between builds.
 
-  externals: [
-    "react": "React",
-    "react-dom": "ReactDOM"
-  ]
+  // externals: [
+  //   "react": "React",
+  //   "react-dom": "ReactDOM"
+  // ]
 }

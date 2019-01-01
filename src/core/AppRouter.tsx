@@ -1,23 +1,25 @@
 import * as React from "react"
-import * as styles from "./App.css"
-import astImage from "./../images/astronaut.png"
-import Data from "./../data.xml"
+import * as styles from "./AppRouter.css"
+import Data from "../data.xml"
 import { Link, Route, Switch } from "react-router-dom"
-import SecondPage from "./SecondPage"
-import ThirdPage from "./ThirdPage"
+import SecondPage from "../pages/SecondPage"
+import ThirdPage from "../pages/ThirdPage"
+// import { Helmet } from "react-helmet"
 
-export interface AppProps {
+export interface AppRouterProps {
   compiler: string;
   framework: string;
 }
 
-// 'AppProps' describes the shape of props.
+// 'AppRouterProps' describes the shape of props.
 // State is never set so we use the '{}' type.
-export class App extends React.Component<AppProps, {}> {
+export class AppRouter extends React.Component<AppRouterProps, {}> {
   render() {
     console.log(Data)
     console.log("this is main app.js")
     return (
+      //This would be vanilla
+      // Links would be in another file
       <div className={styles.hello}>
         <nav>
           <Link to="/page2">SecondPage</Link>
@@ -34,7 +36,6 @@ export class App extends React.Component<AppProps, {}> {
             <Route path="/page3" component={ThirdPage} />
           </Switch>
         </div>
-        <img src={astImage} alt="astImage" />
       </div>
     )
   }
