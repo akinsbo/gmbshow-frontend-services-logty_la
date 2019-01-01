@@ -13,7 +13,9 @@ module.exports = merge(common, {
     hot: true,
     compress: true,
     port: 9001,
-    historyApiFallback: true
+    historyApiFallback: true,
+    inline: true,
+    open: true //open default browser
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -42,7 +44,8 @@ module.exports = merge(common, {
         test: /\.(sa|sc|c)ss$/,
         use: [
           // the order matters. Use postcss-loader as after style-loader and css-loader
-          "style-loader",
+          "css-hot-loader",
+          MiniCssExtractPlugin.loader,
           { loader: "css-loader", options: { importLoaders: 1 } },
           {
             loader: "postcss-loader",

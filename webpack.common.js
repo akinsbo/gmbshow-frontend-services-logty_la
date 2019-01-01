@@ -1,5 +1,6 @@
-const CleanWebpackPlugin = require("clean-webpack-plugin")
+// const CleanWebpackPlugin = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   // mode: "development || "production",
@@ -14,7 +15,7 @@ module.exports = {
     })
   ],
   optimization: {
-    runtimeChunk: "single",
+    runtimeChunk: "single", //separate changing code from generated vendor bundle (in a runtime.bundle.js) so vendor bundle caching is efficient
     splitChunks: {
       name(module) {
         // get the name. E.g. node_modules/packageName/not/this/part.js
@@ -49,37 +50,48 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: "html-loader",
+          options: {
+            attrs: ["img:src", "link:href", ":data-image", ":data-src"]
+          }
+        }
+      },
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.(ico|png|svg|jpg|gif)$/,
-        use: ["file-loader?name=[name].[ext]"] // retain original filename
+        test: /\.(ico|png|svg|jpe?g|gif)$/,
+        use: {
+          loader: "url-loader",
+          options: { name: "[path][name].[hash:base64:7].[ext]" } // retain original filename
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ["file-loader?name=[name].[ext]"] // retain original filename
+        use: ["file-loader?name=[path][name].[hash].[ext]"] // retain original filename
       },
       {
         test: /\.(csv|tsv)$/,
-        use: ["csv-loader?name=[name].[ext]"]
+        use: ["csv-loader?name=[path][name].[hash].[ext]"]
       },
       {
         test: /\.xml$/,
-        use: ["xml-loader?name=[name].[ext]"]
+        use: ["xml-loader?name=[path][name].[hash].[ext]"]
       }
     ]
   }
-
   // When importing a module whose path matches one of the following, just
   // assume a corresponding global variable exists and use that instead.
   // This is important because it allows us to avoid bundling all of our
   // dependencies, which allows browsers to cache those libraries between builds.
 
-  // externals: [
-  //   "react": "React",
-  //   "react-dom": "ReactDOM"
-  // ]
+  externals: [
+    "react": "React",
+    "react-dom": "ReactDOM"
+  ]
 }
