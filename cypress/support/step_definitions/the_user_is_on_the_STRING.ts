@@ -9,11 +9,11 @@ import { Given, Then } from "cypress-cucumber-preprocessor/steps"
 // } from '../action'
 import pageFactory from "../../support/page_objects/PageFactory"
 // import { WebPage, BaseWebPage, Element, Url } from "../../../types"
-import { WebPage } from "../../types"
+import { WebPage } from "featureTypes"
 
-Given("the user is on the {webpage}", (webpage: string) => {
+Given("the user is on the {string}", (webpage: string) => {
   const pageUnderTest: WebPage = pageFactory(webpage)
-  cy.visit(pageUnderTest.basepage.getUrl())
+  cy.visit(pageUnderTest.basepage!.getUrl())
 })
 
 Then("the page title should be {string}", (string: string) => {

@@ -5,7 +5,7 @@
             "featureTypes": ["types"]
         },
         "outDir": "dist",
-        "module": "esnext",
+        "module": "commonjs",
         "target": "es5",
         "lib": [
             "es6",
@@ -24,7 +24,8 @@
         "noImplicitAny": true,
         "importHelpers": true,
         "strictNullChecks": true,
-        "suppressImplicitAnyIndexErrors": true
+        "suppressImplicitAnyIndexErrors": true,
+        "keyofStringsOnly": true
     },
     "exclude": [
         "**/node_modules/**/*",

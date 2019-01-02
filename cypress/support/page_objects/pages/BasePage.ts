@@ -23,7 +23,7 @@ type BasePage = {
 export default function makePage(path: Route): BaseWebPage {
   const basePage: BasePage = {
     apiUrl: "http://localhost:4000/api",
-    baseUrl: "http://localhost:8000",
+    baseUrl: "http://localhost:9000",
     apiVersion: "v1",
     locale: "/en"
   }
