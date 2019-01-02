@@ -1,21 +1,28 @@
 /**
- * BasePage.ts
+ * Page.js
  *
  * Page class that abstracts common parameters for all pages in the website
  *
  * @author Olaolu Akinsete,
+ *
  */
 
+import { BaseWebPage, Route, Url } from "featureTypes"
 /**
  * Create Pages
  *
- * @param {route} path
+ * @param {Route} path
  * @returns {WebPage}
  */
-export default function makePage(path) {
-  const basePage = {
+export default function makePage(path: Route): BaseWebPage {
+  const basePage: {|
+    apiUrl: Url,
+    baseUrl: Url,
+    apiVersion: string,
+    locale: string
+  |} = {
     apiUrl: "http://localhost:4000/api",
-    baseUrl: "http://localhost:9000",
+    baseUrl: "http://localhost:8000",
     apiVersion: "v1",
     locale: "/en"
   }
@@ -23,16 +30,16 @@ export default function makePage(path) {
   /**
    *  getUrl of page
    *
-   * @returns {url}
+   * @returns {Url}
    */
-  const getUrl = () => basePage.baseUrl + path
+  const getUrl = (): Url => (basePage.baseUrl + path: Url)
 
   /**
    * getRoute of page
    *
-   * @returns {route}
+   * @returns {Route}
    */
-  const getRoute = () => path
+  const getRoute = (): Route => path
 
   return Object.freeze({
     basePage,

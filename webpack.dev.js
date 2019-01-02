@@ -13,7 +13,8 @@ module.exports = merge(common, {
     hot: true,
     compress: true,
     port: 9000,
-    historyApiFallback: true
+    historyApiFallback: true, // allow back button and reload to work
+    open: true // open default browser
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

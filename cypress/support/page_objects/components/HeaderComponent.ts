@@ -1,10 +1,11 @@
 /**
  * Copyright (c) 2018-present, Mbshow.
  *
- * HeaderComponent.js
+ * AdminHeaderComponent.js
  * This class defines and exports the header components of the admin panel
  *
  * @author Olaolu Akinsete<akinsbo@gmail.com>, 2018
+ *
  */
 
 /**
@@ -17,6 +18,7 @@
  */
 
 import makeBaseComponent from "./BaseComponent"
+import { Component, Subcomponent } from "featureTypes"
 
 /**
  * This function generates the admin header component
@@ -24,10 +26,10 @@ import makeBaseComponent from "./BaseComponent"
  * @export
  * @returns {Component}
  */
-export default function makeHeaderComponent() {
-  const baseComponent = makeBaseComponent()
+export default function makeHeaderComponent(): Component {
+  const baseComponent: Component = makeBaseComponent()
 
-  const subcomponents = {
+  const subcomponents: Subcomponent = {
     nav: "header_nav",
     brandname: "header_brandname"
   }

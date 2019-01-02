@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2018-present, Mbshow.
  *
- * HeaderFooterPage.ts
+ * HeaderFooterPage.js
  * This class defines and exports the key higher order components of the headerfooterPage
  *
  * @author Olaolu Akinsete<akinsbo@gmail.com>, 2018
@@ -16,12 +16,13 @@
  * - Support for multiple methods
  */
 import makePage from "./BasePage"
-import componentFactory from "../ComponentFactory"
+import { WebPage, BaseWebPage, FeaturesList, Route } from "featureTypes"
+import componentFactory from "../components/ComponentFactory"
 
-export default function makeHomePage(relPath) {
-  const basePage = makePage(relPath)
+export default function makeHomePage(relPath: Route): WebPage {
+  const basePage: BaseWebPage = makePage(relPath)
 
-  const componentList = {
+  const componentList: FeaturesList = {
     headerComponent: componentFactory("header")
     // footerComponent: componentFactory('footerComponent'),
     // featuredComponent: componentFactory('featuredComponent'),

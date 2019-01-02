@@ -1,5 +1,6 @@
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require("path")
 
 module.exports = {
   // mode: "development || "production",
@@ -43,7 +44,10 @@ module.exports = {
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json"],
+    alias: {
+      featureTypes$: path.resolve(__dirname, "cypress/types.ts")
+    }
   },
 
   module: {

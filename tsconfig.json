@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
+        "baseUrl": "cypress",
+        "paths": {
+            "featureTypes": ["types"]
+        },
         "outDir": "dist",
         "module": "esnext",
         "target": "es5",
@@ -15,12 +18,13 @@
         "rootDir": "./",
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
+        "strict": true,
+        "noUnusedLocals": true,
         "noImplicitThis": true,
         "noImplicitAny": true,
         "importHelpers": true,
         "strictNullChecks": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "noUnusedLocals": true
+        "suppressImplicitAnyIndexErrors": true
     },
     "exclude": [
         "build",

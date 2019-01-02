@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { After, Before, Given, Then } from "cypress-cucumber-preprocessor/steps"
+import { Given, Then } from "cypress-cucumber-preprocessor/steps"
 // import {
 //   visit,
 //   checkPageTitle,
@@ -8,9 +8,11 @@ import { After, Before, Given, Then } from "cypress-cucumber-preprocessor/steps"
 //   checkIfMultipleElementsExists,
 // } from '../action'
 import pageFactory from "../../support/page_objects/PageFactory"
+// import { WebPage, BaseWebPage, Element, Url } from "../../../types"
+import { WebPage } from "../../types"
 
-Given("the user is on the {string}", (string: string) => {
-  const pageUnderTest = pageFactory(string)
+Given("the user is on the {webpage}", (webpage: string) => {
+  const pageUnderTest: WebPage = pageFactory(webpage)
   cy.visit(pageUnderTest.basepage.getUrl())
 })
 
