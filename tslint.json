@@ -17,7 +17,7 @@
     "no-var-requires": true
   },
   "rulesDirectory": [],
-  "include": ["src"],
+  "include": ["src", "cypress/support"],
   "exclude": [
     ".cache",
     "node_modules",

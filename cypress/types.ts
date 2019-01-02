@@ -14,5 +14,5 @@ export type WebPage = {
   basepage?: BaseWebPage
 }
 
-export type Component = () => void = function () {}
-export type Subcomponent = () => void = function () {}
+export type Component = object
+export type Subcomponent = object

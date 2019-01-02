@@ -17,7 +17,7 @@
  */
 import makePage from "./BasePage"
 import { WebPage, BaseWebPage, FeaturesList, Route } from "featureTypes"
-import componentFactory from "../components/ComponentFactory"
+import componentFactory from "../ComponentFactory"
 
 export default function makeHomePage(relPath: Route): WebPage {
   const basePage: BaseWebPage = makePage(relPath)

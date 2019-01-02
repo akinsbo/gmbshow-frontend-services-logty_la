@@ -8,6 +8,12 @@
  */
 
 import { BaseWebPage, Route, Url } from "featureTypes"
+type BasePage = {
+  apiUrl: Url,
+  baseUrl: Url,
+  apiVersion: string,
+  locale: string
+}
 /**
  * Create Pages
  *
@@ -15,12 +21,7 @@ import { BaseWebPage, Route, Url } from "featureTypes"
  * @returns {WebPage}
  */
 export default function makePage(path: Route): BaseWebPage {
-  const basePage: {|
-    apiUrl: Url,
-    baseUrl: Url,
-    apiVersion: string,
-    locale: string
-  |} = {
+  const basePage: BasePage = {
     apiUrl: "http://localhost:4000/api",
     baseUrl: "http://localhost:8000",
     apiVersion: "v1",
@@ -32,7 +33,7 @@ export default function makePage(path: Route): BaseWebPage {
    *
    * @returns {Url}
    */
-  const getUrl = (): Url => (basePage.baseUrl + path: Url)
+  const getUrl = (): Url => basePage.baseUrl + path
 
   /**
    * getRoute of page
