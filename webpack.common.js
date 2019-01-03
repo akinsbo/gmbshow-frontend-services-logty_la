@@ -46,7 +46,7 @@ module.exports = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".ts", ".tsx", ".js", ".json"],
     alias: {
-      featureTypes$: path.resolve(__dirname, "cypress/types.ts")
+      featureTypes$: path.resolve(__dirname, "bdd/cypress/types.ts")
     }
   },
 
