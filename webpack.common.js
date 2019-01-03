@@ -1,6 +1,10 @@
+"use strict"
+
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
+const ManifestPlugin = require("webpack-manifest-plugin")
+const workboxPlugin = require("workbox-webpack-plugin")
 
 module.exports = {
   // mode: "development || "production",
@@ -11,6 +15,16 @@ module.exports = {
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       template: "public/index.html"
+    }),
+    new ManifestPlugin({
+      fileName: "asset-manifest.json" // Not to confuse with manifest.json
+    }),
+    //! Order is important: Since workbox revisions each file based on the content, it should be the last plugin called
+    new workboxPlugin.InjectManifest({
+      swSrc: "./src/sw.js",
+      swDest: "sw.js" //where to output service worker in output.path parent directory
+      // clientsClaim: true, //latest service worker should take over all clients as soon as activated
+      // skipWaiting: true // latest service worker should be active on entering waiting phase
     })
   ],
   optimization: {
@@ -59,19 +73,19 @@ module.exports = {
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"]
+        use: ["file-loader?name=[path][name].[hash:base64:7].[ext]"] // retain original filename
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: ["file-loader"]
+        use: ["file-loader?name=[path][name].[hash].[ext]"] // retain original filename
       },
       {
         test: /\.(csv|tsv)$/,
-        use: ["csv-loader"]
+        use: ["csv-loader?name=[path][name].[hash].[ext]"]
       },
       {
         test: /\.xml$/,
-        use: ["xml-loader"]
+        use: ["xml-loader?name=[path][name].[hash].[ext]"]
       }
     ]
   }

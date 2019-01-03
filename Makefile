@@ -3,6 +3,7 @@ start:
 
 build:
 	npm run build
+	npm run serve
 
 bdd:
 	cd bdd
