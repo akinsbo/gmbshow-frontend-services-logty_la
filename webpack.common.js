@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const path = require("path")
 const ManifestPlugin = require("webpack-manifest-plugin")
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin")
 const workboxPlugin = require("workbox-webpack-plugin")
 
 module.exports = {
@@ -19,6 +20,7 @@ module.exports = {
     new ManifestPlugin({
       fileName: "asset-manifest.json" // Not to confuse with manifest.json
     }),
+    new FaviconsWebpackPlugin("./src/images/logo.png"),
     //! Order is important: Since workbox revisions each file based on the content, it should be the last plugin called
     new workboxPlugin.InjectManifest({
       swSrc: "./src/sw.js",

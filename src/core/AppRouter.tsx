@@ -7,8 +7,8 @@ import ThirdPage from "../pages/ThirdPage"
 // import { Helmet } from "react-helmet"
 
 export interface AppRouterProps {
-  compiler: string;
-  framework: string;
+  project: string;
+  motto: string;
 }
 
 // 'AppRouterProps' describes the shape of props.
@@ -26,8 +26,7 @@ export class AppRouter extends React.Component<AppRouterProps, {}> {
           <Link to="/page3">ThirdPage</Link>
         </nav>
         <h1>
-          Hello from {this.props.compiler} and {this.props.framework}! And it
-          works!
+          Welcome to {this.props.project} and {this.props.motto}! Welcome!
         </h1>
         <div>
           <h1>My Custom React app</h1>

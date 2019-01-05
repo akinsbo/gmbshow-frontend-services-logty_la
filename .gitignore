@@ -33,3 +33,4 @@ yarn-error.log
 dustbin
 .todo
 .sonarlint
+.zsh_history\r
