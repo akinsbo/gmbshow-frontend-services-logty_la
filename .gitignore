@@ -8,6 +8,13 @@ dist
 # Dependency directories
 node_modules/
 
+# env
+.env
+.env.prod
+.env.dev
+.env/
+*.env
+
 # Logs
 logs
 *.log

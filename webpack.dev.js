@@ -1,9 +1,8 @@
 const merge = require("webpack-merge")
 const common = require("./webpack.common.js")
 const webpack = require("webpack")
-
-// To minimize css
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const WriteFilePlugin = require("write-file-webpack-plugin")
 
 module.exports = merge(common, {
   mode: "development",
@@ -21,7 +20,8 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
+    new WriteFilePlugin() //Forces webpack-dev-server program to write bundle files to the file system.
   ],
   output: {
     filename: "[name].bundle.js",

@@ -2,10 +2,14 @@
 
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin")
+const webpack = require("webpack")
 const path = require("path")
 const ManifestPlugin = require("webpack-manifest-plugin")
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin")
 const workboxPlugin = require("workbox-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+
+const BUILD_DIR = "dist"
 
 module.exports = {
   // mode: "development || "production",
@@ -13,14 +17,64 @@ module.exports = {
     main: "./src/core/index.tsx"
   },
   plugins: [
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin([BUILD_DIR]),
+    new ManifestPlugin({
+      fileName: "asset-manifest.json" // Not to confuse with manifest.json(the webmanifest file)
+    }),
+    // new FaviconsWebpackPlugin("./src/images/logo.png"),
+    new FaviconsWebpackPlugin({
+      // Your source logo
+      logo: "./src/images/logo.png",
+      // The prefix for all image files (might be a folder or a name)
+      prefix: "icons-[hash]/",
+      // Emit all stats of the generated icons
+      emitStats: false,
+      // The name of the json containing all favicon information
+      statsFilename: "iconstats-[hash].json",
+      // Generate a cache file with control hashes and
+      // don't rebuild the favicons until those hashes change
+      persistentCache: true,
+      // Inject the html into the html-webpack-plugin
+      inject: true,
+      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+      background: "#fff",
+      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+      title: "Duyono App",
+
+      // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
+    }),
     new HtmlWebpackPlugin({
       template: "public/index.html"
     }),
-    new ManifestPlugin({
-      fileName: "asset-manifest.json" // Not to confuse with manifest.json
+    new CopyWebpackPlugin(
+      [
+        {
+          from: __dirname + BUILD_DIR + "/icons-*/manifest.json",
+          to: __dirname + BUILD_DIR + "/manifest.json",
+          toType: "file"
+        }
+      ],
+      { debug: true }
+    ),
+    new webpack.ProvidePlugin({
+      // automatically load modules instead of having to import or require them everywhere
+      React: "React",
+      react: "React",
+      "window.react": "React",
+      "window.React": "React"
     }),
-    new FaviconsWebpackPlugin("./src/images/logo.png"),
     //! Order is important: Since workbox revisions each file based on the content, it should be the last plugin called
     new workboxPlugin.InjectManifest({
       swSrc: "./src/sw.js",
@@ -31,6 +85,7 @@ module.exports = {
   ],
   optimization: {
     runtimeChunk: "single",
+    namedModules: true,
     splitChunks: {
       name(module) {
         // get the name. E.g. node_modules/packageName/not/this/part.js
@@ -49,7 +104,7 @@ module.exports = {
       },
       chunks: "all",
       // https://github.com/webpack/webpack/blob/master/examples/many-pages/webpack.config.js
-      maxInitialRequests: 50, // forcs HTTP2(HTTP1 allows max of 6)
+      maxInitialRequests: 50, // force HTTP2(HTTP1 allows max of 6)
       maxAsyncRequests: 20, // for HTTP2
       minSize: 0
     }
@@ -75,7 +130,7 @@ module.exports = {
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader?name=[path][name].[hash:base64:7].[ext]"] // retain original filename
+        use: ["url-loader?name=[path][name].[hash:base64:7].[ext]"] // retain original filename
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -97,8 +152,10 @@ module.exports = {
   // This is important because it allows us to avoid bundling all of our
   // dependencies, which allows browsers to cache those libraries between builds.
 
-  // externals: [
-  //   "react": "React",
-  //   "react-dom": "ReactDOM"
-  // ]
+  // Expanding upon webpack externals config to differentiate between different output targets:
+  // * Import `react` and `react-dom` when using `require`
+  // * Import `React` and `ReactDOM` when using globals
+  // externals: {
+  //   react: "React"
+  // }
 }
