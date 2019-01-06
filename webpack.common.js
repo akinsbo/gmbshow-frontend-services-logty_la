@@ -9,7 +9,11 @@ const ManifestPlugin = require("webpack-manifest-plugin")
 const workboxPlugin = require("workbox-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 
-const BUILD_DIR = "dist"
+const BrotliGzipPlugin = require("brotli-gzip-webpack-plugin")
+
+const BUILD_DIR = path.resolve(__dirname, "./dist")
+const PUBLIC_DIR = path.resolve(__dirname, "./public")
+const GENERATED_ICONS_DIR = "icons"
 
 module.exports = {
   // mode: "development || "production",
@@ -21,16 +25,19 @@ module.exports = {
     new ManifestPlugin({
       fileName: "asset-manifest.json" // Not to confuse with manifest.json(the webmanifest file)
     }),
+    new HtmlWebpackPlugin({
+      template: "public/index.html"
+    }),
     // new FaviconsWebpackPlugin("./src/images/logo.png"),
     new FaviconsWebpackPlugin({
       // Your source logo
       logo: "./src/images/logo.png",
       // The prefix for all image files (might be a folder or a name)
-      prefix: "icons-[hash]/",
+      prefix: GENERATED_ICONS_DIR + "/",
       // Emit all stats of the generated icons
-      emitStats: false,
+      emitStats: true,
       // The name of the json containing all favicon information
-      statsFilename: "iconstats-[hash].json",
+      statsFilename: "iconstats.json",
       // Generate a cache file with control hashes and
       // don't rebuild the favicons until those hashes change
       persistentCache: true,
@@ -55,18 +62,14 @@ module.exports = {
         windows: false
       }
     }),
-    new HtmlWebpackPlugin({
-      template: "public/index.html"
-    }),
     new CopyWebpackPlugin(
       [
         {
-          from: __dirname + BUILD_DIR + "/icons-*/manifest.json",
-          to: __dirname + BUILD_DIR + "/manifest.json",
-          toType: "file"
+          from: PUBLIC_DIR + "/" + GENERATED_ICONS_DIR, //for absolute path
+          to: BUILD_DIR
         }
       ],
-      { debug: true }
+      { debug: "info" }
     ),
     new webpack.ProvidePlugin({
       // automatically load modules instead of having to import or require them everywhere
@@ -74,6 +77,21 @@ module.exports = {
       react: "React",
       "window.react": "React",
       "window.React": "React"
+    }),
+    new BrotliGzipPlugin({
+      asset: "[path].br[query]",
+      algorithm: "brotli",
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+      quality: 11
+    }),
+    new BrotliGzipPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8
     }),
     //! Order is important: Since workbox revisions each file based on the content, it should be the last plugin called
     new workboxPlugin.InjectManifest({

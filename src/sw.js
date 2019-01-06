@@ -6,6 +6,7 @@ workbox.routing.registerRoute(
   workbox.strategies.staleWhileRevalidate()
 )
 
+//setup sample push
 self.addEventListener("push", event => {
   const title = "Get Started With Workbox"
   const options = {
@@ -15,3 +16,10 @@ self.addEventListener("push", event => {
 })
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
+
+// if (
+//   event.request.cache === "only-if-cached" &&
+//   event.request.mode !== "same-origin"
+// ) {
+//   return
+// }
