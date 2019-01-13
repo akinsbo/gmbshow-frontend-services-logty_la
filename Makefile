@@ -13,4 +13,5 @@ open:
 	cd bdd
 	npm run cypress:open
 
-.PHONY: all test clean
+story:
+	npm run storybook
