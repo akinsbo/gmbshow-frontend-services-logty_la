@@ -5,10 +5,12 @@ build:
 	npm run build
 	npm run serve
 
-bdd:
+bddac:
 	cd bdd
 	npm run cypress:run
 
 open:
 	cd bdd
 	npm run cypress:open
+
+.PHONY: all test clean

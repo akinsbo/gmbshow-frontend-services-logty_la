@@ -20,5 +20,6 @@
         "cypress-cucumber-preprocessor": "^1.9.1",
         "cypress-testing-library": "^2.3.4",
         "tsify": "^4.0.1"
-    }
+    },
+    "dependencies": {}
 }

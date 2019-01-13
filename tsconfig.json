@@ -25,7 +25,8 @@
         "importHelpers": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
-        "keyofStringsOnly": true
+        "keyofStringsOnly": true,
+        "allowSyntheticDefaultImports": true
     },
     "exclude": [
         "**/node_modules/**/*",

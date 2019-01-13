@@ -1,5 +1,6 @@
 # Editor
 .vscode
+.idea
 
 #  Build
 build
@@ -41,3 +42,7 @@ dustbin
 .todo
 .sonarlint
 .zsh_history\r
+*.mp4
+
+# storybook
+storybook-static
