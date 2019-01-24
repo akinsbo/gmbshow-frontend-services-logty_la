@@ -46,3 +46,7 @@ dustbin
 
 # storybook
 storybook-static
+
+# env
+.env
+*.env

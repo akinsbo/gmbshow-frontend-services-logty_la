@@ -15,3 +15,13 @@ open:
 
 story:
 	npm run storybook
+
+docker:
+	docker build --rm -f "local.Dockerfile" -t logty_la:latest .
+
+local-docker:
+	bash build.sh
+	
+bdd-docker:
+	docker build --rm -f "bdd/Dockerfile" -t bdd:latest bdd
+	docker run --rm -d bdd:latest

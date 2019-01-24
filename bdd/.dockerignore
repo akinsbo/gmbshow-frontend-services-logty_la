@@ -1,0 +1,18 @@
+
+
+# others
+.cache
+coverage
+docs
+README.md
+
+# build
+node_modules
+npm-debug.log
+
+
+# test
+__mocks__
+
+# editor
+.vscode

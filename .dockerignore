@@ -1,0 +1,23 @@
+
+
+# others
+.cache
+coverage
+bdd
+.dustbin
+docs
+README.md
+
+# build
+dist
+node_modules
+npm-debug.log
+# .storybook
+# stories
+# package-lock.json
+
+# test
+__mocks__
+
+# editor
+.vscode
