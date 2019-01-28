@@ -9,7 +9,7 @@
         "build": "webpack -p --progress --config webpack.prod.js",
         "serve": "http-server ./dist -p 3000",
         "jest": "jest",
-        "e2e": "cd bdd && npm install && npm run cypress:run",
+        "e2e": "cd cypress-cucumber && npm install && npm run cypress:run",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
