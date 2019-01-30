@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "cypress",
+        "baseUrl": "/",
         "paths": {
             "featureTypes": ["types"]
         },
@@ -25,9 +25,15 @@
         "importHelpers": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
-        "keyofStringsOnly": true
+        "keyofStringsOnly": true,
+        "esModuleInterop": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "*.d.ts"
+    ],
+    "include": [
+        "cypress/**/*.ts",
+        "cypress/**/*.tsx"
     ]
 }

@@ -1,6 +1,12 @@
+const path = require("path")
+
 module.exports = {
   resolve: {
-    extensions: [".ts", ".js"]
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".ts", ".tsx", ".js", ".json"],
+    alias: {
+      featureTypes$: path.resolve(__dirname, "cypress/types.ts")
+    }
   },
   module: {
     rules: [
@@ -23,4 +29,4 @@ module.exports = {
       }
     ]
   }
-};
+}
