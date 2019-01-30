@@ -36,6 +36,7 @@
         "webpack",
         "jest",
         "src/setupTests.ts",
-        "bdd"
+        "bdd",
+        "cypress-cucumber"
     ]
 }
