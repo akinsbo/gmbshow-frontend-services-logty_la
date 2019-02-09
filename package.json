@@ -8,8 +8,9 @@
         "start": "webpack-dev-server -p --progress --config webpack.dev.js",
         "build": "webpack -p --progress --config webpack.prod.js",
         "serve": "http-server ./dist -p 3000",
-        "jest": "jest",
-        "e2e": "cd cypress-cucumber && npm install && npm run cypress:run",
+        "jest": "jest --verbose",
+        "acceptance-test": "cd cypress-cucumber && npm run cypress:run",
+        "acceptance-test:install": "cd cypress-cucumber && npm install && npm run cypress:run",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
