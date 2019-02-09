@@ -43,6 +43,7 @@ dustbin
 .sonarlint
 .zsh_history\r
 *.mp4
+*.tar
 
 # storybook
 storybook-static

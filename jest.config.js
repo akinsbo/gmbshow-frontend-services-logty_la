@@ -16,5 +16,5 @@ module.exports = {
   },
   testURL: "http://localhost",
   setupFiles: ["<rootDir>/src/setupTests.ts"],
-  setupTestFrameworkScriptFile: "./node_modules/jest-enzyme/lib/index.js"
+  setupFilesAfterEnv: ["./node_modules/jest-enzyme/lib/index.js"]
 }

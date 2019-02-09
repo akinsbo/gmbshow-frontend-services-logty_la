@@ -1,6 +1,6 @@
-import * as React from "react"
-import { configure } from "enzyme"
-import Adapter from "enzyme-adapter-react-16"
+import * as Enzyme from "enzyme"
+import * as Adapter from "enzyme-adapter-react-16"
 
-// React 16 Enzyme adapter
-configure({ adapter: new Adapter() })
+Enzyme.configure({
+  adapter: new Adapter()
+})
