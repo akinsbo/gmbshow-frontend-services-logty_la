@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppRouter /> render 1`] = `
+<div
+  className="hello"
+>
+  <nav>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      HomePage
+    </a>
+    <a
+      href="/page2"
+      onClick={[Function]}
+    >
+      SecondPage
+    </a>
+    <a
+      href="/page3"
+      onClick={[Function]}
+    >
+      ThirdPage
+    </a>
+  </nav>
+  <h1>
+    Welcome to 
+    duyono
+     from 
+    https://duyono.com
+    ! Welcome!
+  </h1>
+  <div>
+    <h1>
+      My Custom React app
+    </h1>
+    <div>
+      <div
+        className="application"
+      >
+        ...
+      </div>
+      <h1>
+        This is the Home page
+      </h1>
+      <img
+        alt="astImage"
+      />
+    </div>
+  </div>
+</div>
+`;

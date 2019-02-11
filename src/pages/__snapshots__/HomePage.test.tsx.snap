@@ -2,6 +2,11 @@
 
 exports[`HomePage renders correctly 1`] = `
 <div>
+  <div
+    className="application"
+  >
+    ...
+  </div>
   <h1>
     This is the Home page
   </h1>
