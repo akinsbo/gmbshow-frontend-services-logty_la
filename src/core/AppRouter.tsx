@@ -18,8 +18,6 @@ export interface AppRouterProps {
 // State is never set so we use the '{}' type.
 export default class AppRouter extends React.Component<AppRouterProps, {}> {
   render() {
-    console.log(this.props.siteData)
-    console.log("this is main app.js")
     return (
       // Links would be in another file
       <div className={styles.hello}>

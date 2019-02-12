@@ -9,12 +9,16 @@
         "build": "webpack -p --progress --config webpack.prod.js",
         "serve": "http-server ./dist -p 3000",
         "jest": "jest --verbose",
+        "jest:cov": "jest --coverage",
+        "jest:changed": "jest --only-changed",
+        "jest:watch": "jest --watch",
         "acceptance-test": "cd cypress-cucumber && npm run cypress:run",
         "acceptance-test:install": "cd cypress-cucumber && npm install && npm run cypress:run",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
     "dependencies": {
+        "@types/mocha": "^5.2.5",
         "@types/node": "^10.12.18",
         "@types/react": "^16.7.13",
         "@types/react-dom": "^16.0.11",
