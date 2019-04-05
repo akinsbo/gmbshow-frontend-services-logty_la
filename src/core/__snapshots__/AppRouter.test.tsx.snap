@@ -33,13 +33,13 @@ exports[`<AppRouter /> should render 1`] = `
       <div
         className="application"
       >
-        ...
+        <div />
       </div>
       <h1>
         This is the Home page
       </h1>
       <img
-        alt="astImage"
+        alt="duyonoStonePng"
       />
     </div>
   </div>
