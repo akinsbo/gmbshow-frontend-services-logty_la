@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AppRouter /> render 1`] = `
+exports[`<AppRouter /> should render 1`] = `
 <div
   className="hello"
 >
+  <div />
   <nav>
     <a
       href="/"
@@ -24,13 +25,6 @@ exports[`<AppRouter /> render 1`] = `
       ThirdPage
     </a>
   </nav>
-  <h1>
-    Welcome to 
-    duyono
-     from 
-    https://duyono.com
-    ! Welcome!
-  </h1>
   <div>
     <h1>
       My Custom React app

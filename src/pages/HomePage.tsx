@@ -1,19 +1,15 @@
 import * as React from "react"
-import astImage from "../images/duyono-stone.png"
+import HeadModifier from "../core/HeadModifier"
+import duyonoStonePng from "../images/duyono-stone.png"
 
 const HomePage = () => (
   <div>
     <div className="application">
-      {/* <Helmet>
-        <meta charSet="utf-8" />
-        <title>My Title</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet> */}
-      ...
+    <HeadModifier title= {"Homepage"} />
     </div>
     <h1>This is the Home page</h1>
 
-    <img src={astImage} alt="astImage" />
+    <img src={duyonoStonePng} alt="duyonoStonePng" />
   </div>
 )
 

@@ -36,7 +36,7 @@
         "acceptance-tests",
         "webpack",
         "jest",
-        "src/setupTests.ts",
+        "src/setupTests.tsx",
         "bdd",
         "cypress-cucumber"
     ]

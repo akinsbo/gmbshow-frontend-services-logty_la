@@ -1,18 +1,19 @@
 /// <reference types="cypress" />
 
 import { Given, Then } from "cypress-cucumber-preprocessor/steps"
+// import { WebPage, BaseWebPage, Element, Url } from "../../../types"
+// tslint:disable-next-line: no-implicit-dependencies
+import { WebPage } from "featureTypes"
 // import {
 //   visit,
 //   checkPageTitle,
 //   checkIfElementExists,
 //   checkIfMultipleElementsExists,
 // } from '../action'
-import pageFactory from "../../support/page_objects/PageFactory"
-// import { WebPage, BaseWebPage, Element, Url } from "../../../types"
-import { WebPage } from "featureTypes"
+import PageFactory from "../../support/page_objects/PageFactory"
 
 Given("the user is on the {string}", (webpage: string) => {
-  const pageUnderTest: WebPage = pageFactory(webpage)
+  const pageUnderTest: WebPage = PageFactory(webpage)
   cy.visit(pageUnderTest.basepage!.getUrl())
 })
 

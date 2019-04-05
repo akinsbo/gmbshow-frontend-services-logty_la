@@ -1,45 +1,26 @@
 import * as React from "react"
-import * as renderer from "react-test-renderer"
+import { HelmetProvider } from "react-helmet-async"
 import { BrowserRouter as Router } from "react-router-dom"
-import data from "../site-data.json"
-import { expect } from "chai"
+import * as renderer from "react-test-renderer"
 
+import * as Enzyme from "enzyme"
+import * as Adapter from "enzyme-adapter-react-16"
+import "jest-enzyme"
+
+Enzyme.configure({
+  adapter: new Adapter()
+})
 import AppRouter from "./AppRouter"
 
 describe("<AppRouter />", () => {
-  const wrapper = renderer.create(
-    <Router>
-      <AppRouter siteData={data} />
-    </Router>
-  )
-
-  test("render", () => {
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  describe("structure", () => {
-    describe("Helmet", () => {
-      let helmetWrapper
-      beforeEach(() => {
-        helmetWrapper = wrapper.find("Helmet")
-      })
-      it("should be present", () => {
-        expect(helmetWrapper).toHaveLength(1)
-      })
-      it("should contain elements", () => {
-        expect(helmetWrapper)
-          .find("title")
-          .toHaveLength(1)
-        describe("meta", () => {
-          const metaWrapper = wrapper.find("meta")
-          it("should contain meta element", () => {
-            expect(metaWrapper).toHaveLength(1)
-          })
-          it("should contain props", () => {
-            expect(metaWrapper).toHaveProp("name")
-          })
-        })
-      })
-    })
+  it("should render", () => {
+    const renderWrapper = renderer.create(
+      <HelmetProvider>
+      <Router>
+        <AppRouter />
+      </Router>
+    </HelmetProvider>
+    )
+    expect(renderWrapper).toMatchSnapshot()
   })
 })

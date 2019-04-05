@@ -1,15 +1,16 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
+import { HelmetProvider } from "react-helmet-async"
 import { BrowserRouter } from "react-router-dom"
-import data from "../site-data.json"
-
-import { AppRouter } from "./AppRouter"
+import AppRouter from "./AppRouter"
 import registerServiceWorker from "./registerServiceWorker"
 
-ReactDOM.render(
-  <BrowserRouter>
-    <AppRouter siteData={data} />
-  </BrowserRouter>,
+ReactDOM.hydrate(
+  <HelmetProvider>
+    <BrowserRouter>
+      <AppRouter  />
+    </BrowserRouter>
+  </HelmetProvider>,
   document.getElementById("root")
 )
 registerServiceWorker()

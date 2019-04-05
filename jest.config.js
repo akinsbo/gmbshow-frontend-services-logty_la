@@ -15,6 +15,6 @@ module.exports = {
     __PATH_PREFIX__: ""
   },
   testURL: "http://localhost",
-  setupFiles: ["<rootDir>/src/setupTests.ts"],
-  setupFilesAfterEnv: ["./node_modules/jest-enzyme/lib/index.js"]
+  // setupFiles: ["<rootDir>/src/setupTests.tsx"],
+  setupFilesAfterEnv: ["./node_modules/jest-enzyme/lib/index.js", "<rootDir>/src/setupTests.tsx"]
 }
