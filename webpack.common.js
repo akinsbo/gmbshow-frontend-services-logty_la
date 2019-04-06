@@ -21,7 +21,8 @@ module.exports = {
     main: "./src/core/index.tsx"
   },
   plugins: [
-    new CleanWebpackPlugin([BUILD_DIR]),
+    // with zero configuration, cleanWebpack plugin will clean output directory
+    new CleanWebpackPlugin(),
     new ManifestPlugin({
       fileName: "asset-manifest.json" // Not to confuse with manifest.json(the webmanifest file)
     }),

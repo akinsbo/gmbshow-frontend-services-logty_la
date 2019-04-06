@@ -7,7 +7,7 @@ Feature: Manage Pages
     Scenario: View Homepage
         Given the user is on the "Homepage"
         Then the page title should be "Homepage"
-        # Then the user should be able to see a header
+        Then the user should be able to see a header
 # And the user should be able to see a video_search_bar
 # And the user should be able to see a featured_video_panel
 # And the user should be able to see video_cards
