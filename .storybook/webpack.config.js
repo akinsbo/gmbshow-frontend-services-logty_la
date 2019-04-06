@@ -6,7 +6,6 @@
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
-const path = require('path');
 // your app's webpack.config.js
 const custom = require('../webpack.dev.js');
 

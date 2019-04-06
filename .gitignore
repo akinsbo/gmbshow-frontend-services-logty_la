@@ -47,6 +47,7 @@ dustbin
 
 # storybook
 storybook-static
+.out
 
 # test
 coverage

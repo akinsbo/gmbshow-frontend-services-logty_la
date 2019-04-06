@@ -16,6 +16,11 @@ open:
 story:
 	npm run storybook
 
+# Serve storybook as an independent app
+story-build:
+	npm run build-storybook
+	npx serve .
+
 docker:
 	docker build --rm -f "local.Dockerfile" -t logty_la:latest .
 

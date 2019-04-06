@@ -16,8 +16,8 @@
         "acceptance-test": "cd cypress-cucumber && npm run cypress:run",
         "acceptance-test:install": "cd cypress-cucumber && npm install && npm run cypress:run",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
-    },
+        "build-storybook": "build-storybook -c .storybook -o .out"
+        },
     "dependencies": {
         "@types/node": "^11.13.0",
         "@types/react": "^16.8.12",
