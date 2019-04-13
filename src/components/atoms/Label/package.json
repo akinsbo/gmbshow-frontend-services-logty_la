@@ -1,0 +1,19 @@
+{
+    "name": "Label",
+    "version": "1.0.0",
+    "description": "Label component",
+    "main": "Label.tsx",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/src/components/atoms/Label"
+    },
+    "keywords": [
+        "header",
+        "component"
+    ],
+    "author": "Olaolu Akinsete",
+    "license": "ISC"
+}

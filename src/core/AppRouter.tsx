@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage"
 import SecondPage from "../pages/SecondPage"
 import ThirdPage from "../pages/ThirdPage"
+import siteDataJson from "../utils/site-data.json"
 import * as styles from "./AppRouter.css"
 import HeadModifier from "./HeadModifier"
 
@@ -12,7 +13,8 @@ const AppRouter = () => {
   return (
     // Links would be in another file
     <div className={styles.hello}>
-      <HeadModifier />
+      {/* <HeadModifier /> */}
+      <HeadModifier title={siteDataJson.title} author={siteDataJson.author} link={siteDataJson.link} theme_color={siteDataJson.theme_color} />
       <Router>
         <nav>
           <Link to="/">HomePage</Link>
@@ -23,7 +25,7 @@ const AppRouter = () => {
         <Route exact={true} path="/" component={HomePage} />
         <Route path="/page2" component={SecondPage} />
         <Route path="/page3" component={ThirdPage} />
-         
+
       </Router>
       <div>
         <h1>My Custom React app</h1>

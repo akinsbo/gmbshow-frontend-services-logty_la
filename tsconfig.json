@@ -2,7 +2,9 @@
     "compilerOptions": {
         "baseUrl": "cypress",
         "paths": {
-            "featureTypes": ["types"]
+            "featureTypes": [
+                "types"
+            ]
         },
         "outDir": "dist",
         "module": "esnext",
@@ -27,7 +29,11 @@
         "suppressImplicitAnyIndexErrors": true,
         "keyofStringsOnly": true,
         "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "isolatedModules": false,
+        "noEmit": true
     },
     "exclude": [
         "node_modules",

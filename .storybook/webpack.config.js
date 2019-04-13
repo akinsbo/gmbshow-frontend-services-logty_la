@@ -7,8 +7,22 @@
 // to "React Create App". This only has babel loader to load JavaScript.
 
 // your app's webpack.config.js
-const custom = require('../webpack.dev.js');
+const custom = require('../webpack.common.js');
+// const dev = require('../webpack.dev.js');
 
 module.exports = async ({ config, mode }) => {
-  return { ...config, loader: custom.loader };
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    use: [
+      {
+        loader: require.resolve('awesome-typescript-loader'),
+      },
+      //Optional
+      {
+        loader: require.resolve('react-docgen-typescript-loader'),
+      },
+    ],
+  })
+  config.resolve.extensions.push('.ts', '.tsx');
+  return { ...config, module: { ...config.module, rules: custom.module.rules } };
 };

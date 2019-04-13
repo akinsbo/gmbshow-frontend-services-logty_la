@@ -4,7 +4,7 @@ import Adapter from "enzyme-adapter-react-16"
 import "jest-enzyme"
 import * as React from "react"
 import * as renderer from "react-test-renderer"
-import Header from "./Header";
+import Label from "./Label";
 
 Enzyme.configure({
     adapter: new Adapter()
@@ -13,7 +13,7 @@ Enzyme.configure({
 describe("HomePage", () => {
     it("renders correctly", () => {
       const tree = renderer.create(
-        <Header />
+        <Label />
       ).toJSON()
       expect(tree).toMatchSnapshot()
     })

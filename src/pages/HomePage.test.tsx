@@ -1,12 +1,10 @@
 
 import * as Enzyme from "enzyme"
-import * as Adapter from "enzyme-adapter-react-16"
-
+import Adapter from "enzyme-adapter-react-16"
 import "jest-enzyme"
 import * as React from "react"
 import { HelmetProvider } from "react-helmet-async"
 import * as renderer from "react-test-renderer"
-
 import HomePage from "./HomePage"
 
 Enzyme.configure({
