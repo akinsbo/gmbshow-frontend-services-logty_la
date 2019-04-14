@@ -11,20 +11,28 @@ Enzyme.configure({
   adapter: new enzymeAdapterReact16()
 })
 
+// Reusable homepage and it's wrappers
+const homePageAndWrappers =
+  <HelmetProvider>
+    <HomePage />
+  </HelmetProvider>
+
+// We define the wrapper
+const wrapper = Enzyme.mount(
+  homePageAndWrappers
+)
+
 describe("HomePage", () => {
+  // Snapshot it
   it("renders correctly", () => {
     const tree = renderer.create(
-      <HelmetProvider>
-        <HomePage />
-      </HelmetProvider>
+      homePageAndWrappers
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
   describe("structure", () => {
-    const wrapper = Enzyme.shallow(
-      <HomePage />
-    )
-      console.log(wrapper.debug())
+    // console.log(wrapper.debug())
+
     describe("HeadModifier", () => {
       let headModifierWrapper: any
       beforeEach(() => {
