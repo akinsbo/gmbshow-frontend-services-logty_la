@@ -1,5 +1,5 @@
 import * as Enzyme from "enzyme"
-import Adapter from "enzyme-adapter-react-16"
+import enzymeAdapterReact16 from "enzyme-adapter-react-16"
 import "jest-enzyme"
 import * as React from "react"
 import { HelmetProvider } from "react-helmet-async"
@@ -8,7 +8,7 @@ import HeadModifier from "./HeadModifier"
 
 
 Enzyme.configure({
-    adapter: new Adapter()
+    adapter: new enzymeAdapterReact16()
 })
 
 const siteDataJson = {
@@ -19,7 +19,7 @@ const siteDataJson = {
 }
 
 
-describe("<HeadModifier />", () => {
+describe("HeadModifier", () => {
     it("should render", () => {
         const renderWrapper = renderer.create(
             <HelmetProvider>
@@ -30,7 +30,7 @@ describe("<HeadModifier />", () => {
     })
     describe("structure", () => {
         const wrapper = Enzyme.shallow(
-                <HeadModifier {...siteDataJson} />
+            <HeadModifier {...siteDataJson} />
         )
         describe("Helmet", () => {
             let helmetWrapper: any
@@ -40,21 +40,24 @@ describe("<HeadModifier />", () => {
             it("should be present", () => {
                 expect(helmetWrapper).toHaveLength(1)
             })
-            it("should contain elements", () => {
+            it("should contain title element", () => {
                 expect(helmetWrapper.find("title"))
                     .toHaveLength(1)
             })
             describe("meta", () => {
-                const metaWrapper = wrapper.find("meta")
-                it("should contain meta element", () => {
+                let metaWrapper: any
+                beforeEach(() => {
+                    metaWrapper = helmetWrapper.find("meta")
+                })
+                it("should be present in Helmet", () => {
                     expect(metaWrapper).toHaveLength(1)
                 })
                 it("should contain props", () => {
                     expect(metaWrapper).toHaveProp("name")
                 })
-            })
-        })
-    })
-})
+            })// describe meta
+        })// describe Helmet
+    })// describe strucutre
+})// describe HeadModifier
 
 

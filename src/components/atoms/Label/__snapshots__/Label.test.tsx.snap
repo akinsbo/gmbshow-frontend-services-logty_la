@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomePage renders correctly 1`] = `
+exports[`Label renders correctly 1`] = `
 <label>
   <h1>
     Word

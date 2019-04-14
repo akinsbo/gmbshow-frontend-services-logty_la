@@ -10,7 +10,7 @@ Enzyme.configure({
     adapter: new enzymeAdapterReact16()
 })
 
-describe("HomePage", () => {
+describe("Label", () => {
     it("renders correctly", () => {
       const tree = renderer.create(
         <Label><h1>Word</h1></Label>

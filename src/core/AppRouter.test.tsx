@@ -1,5 +1,5 @@
 import * as Enzyme from "enzyme"
-import Adapter from "enzyme-adapter-react-16";
+import enzymeAdapterReact16 from "enzyme-adapter-react-16";
 import "jest-enzyme"
 import * as React from "react"
 import { HelmetProvider } from "react-helmet-async"
@@ -8,17 +8,17 @@ import * as renderer from "react-test-renderer"
 import AppRouter from "./AppRouter"
 
 Enzyme.configure({
-  adapter: new Adapter()
+  adapter: new enzymeAdapterReact16()
 })
 
-describe("<AppRouter />", () => {
+describe("AppRouter", () => {
   it("should render", () => {
     const renderWrapper = renderer.create(
       <HelmetProvider>
-      <Router>
-        <AppRouter />
-      </Router>
-    </HelmetProvider>
+        <Router>
+          <AppRouter />
+        </Router>
+      </HelmetProvider>
     )
     expect(renderWrapper).toMatchSnapshot()
   })
