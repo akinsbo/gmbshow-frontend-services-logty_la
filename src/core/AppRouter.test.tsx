@@ -1,5 +1,5 @@
 import * as Enzyme from "enzyme"
-import enzymeAdapterReact16 from "enzyme-adapter-react-16";
+import enzymeAdapterReact16 from "enzyme-adapter-react-16"
 import "jest-enzyme"
 import * as React from "react"
 import { HelmetProvider } from "react-helmet-async"

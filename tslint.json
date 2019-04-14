@@ -30,6 +30,9 @@
     ],
     "no-implicit-submodule": [
       false
+    ],
+    "no-submodule-imports": [
+      false
     ]
   },
   "rulesDirectory": [],
