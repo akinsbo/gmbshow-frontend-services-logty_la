@@ -2,7 +2,7 @@ import { addParameters, addDecorator, configure } from '@storybook/react';
 import { themes } from '@storybook/theming';
 import { withInfo } from '@storybook/addon-info';
 // automatically import all files ending in *.stories.js
-const req = require.context('../src/components/atoms/Label', true, /\.stories\.tsx$/);
+const req = require.context('../src/components', true, /\.stories\.tsx$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));

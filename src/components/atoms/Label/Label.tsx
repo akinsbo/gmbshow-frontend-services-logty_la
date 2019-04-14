@@ -1,7 +1,12 @@
-import * as React from "react"
+import * as React from 'react'
 
-const Label = () => (
-    <label>Label</label>
-)
+// Uncomment if you wish to use interface for typing
+// interface LabelProps {
+//     children: JSX.Element[] | JSX.Element
+// }
+
+const Label = (props: {children: JSX.Element[] | JSX.Element}) => {
+    return <label>{props.children}</label>
+}
 
 export default Label

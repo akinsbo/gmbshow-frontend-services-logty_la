@@ -14,7 +14,9 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ""
   },
+    // Setup Enzyme
   testURL: "http://localhost",
   // setupFiles: ["<rootDir>/src/setupTests.tsx"],
+  snapshotSerializers: ["enzyme-to-json/serializer"],
   setupFilesAfterEnv: ["./node_modules/jest-enzyme/lib/index.js", "<rootDir>/src/setupTests.tsx"]
 }
