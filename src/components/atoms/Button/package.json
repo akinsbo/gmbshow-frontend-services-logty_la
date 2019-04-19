@@ -1,0 +1,20 @@
+{
+    "name": "MaterialButton",
+    "version": "1.0.0",
+    "description": "MaterialButton component",
+    "main": "MaterialButton.tsx",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/src/components/atoms/MaterialButton"
+    },
+    "keywords": [
+        "button",
+        "component",
+        "material"
+    ],
+    "author": "Olaolu Akinsete",
+    "license": "ISC"
+}
