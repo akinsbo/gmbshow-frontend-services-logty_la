@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs'
+import { text } from '@storybook/addon-knobs'
 // import { linkTo } from '@storybook/addon-links';
 // import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
@@ -10,9 +10,8 @@ import MaterialButton from './MaterialButton'
 
 
 storiesOf('atoms|MaterialButton', module)
-  .addDecorator(withKnobs)
-  .add('with text', () => <MaterialButton ><h3>Button</h3></MaterialButton>, {
-    notes: 'A very simple example of addon notes',
+  .add('with child component and text', () => <MaterialButton ><span>Material Button</span></MaterialButton>, {
+    notes: 'Derived from material-ui library',
   })
   .add('with some emoji', () =>
     <MaterialButton>
@@ -20,6 +19,12 @@ storiesOf('atoms|MaterialButton', module)
         😀 😎 👍 💯
       </span>
     </MaterialButton>, {
-      notes: 'A very simple example of addon notes',
+      notes: 'Derived from material-ui library',
     }
   )
+  .add('with text', () => <MaterialButton >{text('title', 'Material Button')}</MaterialButton>, {
+    notes: 'Derived from material-ui library',
+  })
+  .add('no text', () => <MaterialButton />, {
+    notes: 'Derived from material-ui library',
+  })

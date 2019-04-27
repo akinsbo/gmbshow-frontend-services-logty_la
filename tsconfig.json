@@ -2,6 +2,7 @@
     "compilerOptions": {
         "baseUrl": "cypress",
         "paths": {
+            "*": ["types/*"],
             "featureTypes": [
                 "types"
             ]
