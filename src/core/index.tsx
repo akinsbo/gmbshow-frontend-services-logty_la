@@ -4,9 +4,10 @@ import { HelmetProvider } from "react-helmet-async"
 import AppRouter from "./AppRouter"
 import registerServiceWorker from "./registerServiceWorker"
 
+
 ReactDOM.hydrate(
   <HelmetProvider>
-      <AppRouter  />
+    <AppRouter  />
   </HelmetProvider>,
   document.getElementById("root")
 )

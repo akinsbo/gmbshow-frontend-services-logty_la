@@ -8,7 +8,7 @@
 
 // your app's webpack.config.js
 // const custom = require('../webpack.common.js');
-const dev = require('../webpack.dev.js');
+const custom = require('../webpack.dev.js');
 
 module.exports = async ({ config, mode }) => {
   config.module.rules.push(

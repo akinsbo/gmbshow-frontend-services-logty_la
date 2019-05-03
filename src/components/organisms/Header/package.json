@@ -1,0 +1,20 @@
+{
+    "name": "header",
+    "version": "1.0.0",
+    "description": "Header component",
+    "main": "Header.tsx",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/src/components/atoms/Header"
+    },
+    "keywords": [
+        "header",
+        "component",
+        "material"
+    ],
+    "author": "Olaolu Akinsete",
+    "license": "ISC"
+}

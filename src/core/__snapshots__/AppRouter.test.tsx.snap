@@ -23,7 +23,9 @@ exports[`AppRouter should render 1`] = `
       ThirdPage
     </a>
   </nav>
-  <div>
+  <div
+    className="makeStyles-grow-2"
+  >
     <div
       className="application"
     >
@@ -36,32 +38,6 @@ exports[`AppRouter should render 1`] = `
       alt="duyonoStonePng"
       src="test-file-stub"
     />
-    <button
-      className="MuiButtonBase-root-29 MuiButton-root-3 MuiButton-text-5 MuiButton-textSecondary-7 MuiButton-flat-8 MuiButton-flatSecondary-10 HomePage-button-1"
-      disabled={false}
-      onBlur={[Function]}
-      onContextMenu={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex="0"
-      type="button"
-    >
-      <span
-        className="MuiButton-label-4"
-      >
-        Primary
-      </span>
-      <span
-        className="MuiTouchRipple-root-32"
-      />
-    </button>
   </div>
   <div>
     <h1>
