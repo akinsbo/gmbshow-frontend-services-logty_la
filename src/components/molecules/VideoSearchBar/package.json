@@ -1,0 +1,20 @@
+{
+    "name": "video_search_bar",
+    "version": "1.0.0",
+    "description": "VideoSearchBar component",
+    "main": "VideoSearchBar.tsx",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/src/components/atoms/VideoSearchBar"
+    },
+    "keywords": [
+        "VideoSearchBar",
+        "component",
+        "material"
+    ],
+    "author": "Olaolu Akinsete",
+    "license": "ISC"
+}

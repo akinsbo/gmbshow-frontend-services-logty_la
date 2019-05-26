@@ -12,10 +12,13 @@ const glob = require("glob")
 const PurgecssPlugin = require("purgecss-webpack-plugin")
 
 const PATHS = {
-  src: path.join(__dirname, "src")
+  src: path.join(__dirname, "/src")
 }
 
-module.exports = merge(common, {
+// Try the environment variable, otherwise use root
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
+module.exports = env => merge(common(env), {
   mode: "production",
   output: {
     // hash content of files for cache to detect content change

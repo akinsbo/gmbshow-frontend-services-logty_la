@@ -10,12 +10,13 @@ import HeadModifier from "./HeadModifier"
 // State is never set so we use the '{}' type.
 // tslint:disable-next-line:variable-name
 const AppRouter = () => {
+  const {title, author, link, theme_color} = siteDataJson
+
   return (
-    
     // Links would be in another file
     <div className={styles.hello}>
       {/* <HeadModifier /> */}
-      <HeadModifier title={siteDataJson.title} author={siteDataJson.author} link={siteDataJson.link} theme_color={siteDataJson.theme_color} />
+      <HeadModifier title={title} author={author} link={link} theme_color={theme_color} />
       <Router>
         <nav>
           <Link to="/">HomePage</Link>

@@ -4,7 +4,10 @@ const webpack = require("webpack")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const WriteFilePlugin = require("write-file-webpack-plugin")
 
-module.exports = merge(common, {
+// Try the environment variable, otherwise use root
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
+module.exports = env => merge(common(env), {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
@@ -16,6 +19,9 @@ module.exports = merge(common, {
     open: true // open default browser
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH)
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css",
@@ -26,7 +32,7 @@ module.exports = merge(common, {
   output: {
     filename: "[name].bundle.js",
     path: __dirname + "/dist",
-    publicPath: "/"
+    publicPath: ASSET_PATH
   },
   module: {
     rules: [
@@ -45,4 +51,5 @@ module.exports = merge(common, {
       }
     ]
   }
-})
+}
+)

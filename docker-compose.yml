@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/fakeApi.Dockerfile
+    ports:
+     - "3000:3000"
+
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    ports:
+     - "8003:80"

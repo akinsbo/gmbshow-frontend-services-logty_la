@@ -1,6 +1,7 @@
 import AppBar from '@material-ui/core/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import siteDataJson from "../../../utils/site-data.json"
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 // tslint:disable-next-line:import-name
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     root: {
         width: '100%',
     },
-    title: {
+    titleStyle: {
         display: 'none',
         [theme.breakpoints.up('sm')]: {
             display: 'block',
@@ -44,35 +45,45 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 })
 )
 
-// export interface HeaderProps extends WithStyles<typeof styles> { }
+interface HeaderProps {
+    title?: string
+    children?: JSX.Element[] | JSX.Element | string[] | string
+}
 
-const Header = () => {
+// export interface HeaderProps extends WithStyles<typeof styles> { }
+const Header = (props: HeaderProps) => {
     const classes = useStyles()
+    const { grow, menuButton, titleStyle, sectionDesktop, sectionMobile } = classes
 
     return (
         <React.Fragment>
-            <div className={classes.grow}>
+            <div className={`header ${grow}`}>
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton
                             edge="start"
-                            className={classes.menuButton}
+                            className={menuButton}
                             color="inherit"
                             aria-label="Open drawer"
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            Material-UI
+                        <Typography className={titleStyle} variant="h6" color="inherit" noWrap>
+                            title
                          </Typography>
-                        <div className={classes.grow} />
-                        <div className={classes.sectionDesktop} />
-                        <div className={classes.sectionMobile} />
+                        <div className={grow} />
+                        <div className={sectionDesktop} />
+                        <div className={sectionMobile} />
                     </Toolbar>
                 </AppBar>
             </div>
         </React.Fragment>
     )
+}
+const {title} = siteDataJson
+
+Header.defaultProps = {
+    title
 }
 
 export default Header

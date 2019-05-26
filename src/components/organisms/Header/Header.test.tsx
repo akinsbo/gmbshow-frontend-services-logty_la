@@ -10,7 +10,7 @@ Enzyme.configure({
     adapter: new enzymeAdapterReact16()
 })
 
-describe("HomePage", () => {
+describe("Header", () => {
     it("renders correctly", () => {
       const tree = renderer.create(
         <Header />

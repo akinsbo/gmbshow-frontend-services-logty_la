@@ -30,3 +30,7 @@ local-docker:
 bdd-docker:
 	docker build --rm -f "bdd/Dockerfile" -t bdd:latest bdd
 	docker run --rm -d bdd:latest
+
+# Serve fake API
+api:
+	npm run json:server
