@@ -1,8 +1,10 @@
-FROM node:10.15-alpine as build-deps
+FROM node:10.15-alpine
 
 LABEL Author="Olaolu_Akinsete"
 
 RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+
+# Generate json file from faker schemer
 
 # Create a working directory
 WORKDIR /fakeApi
@@ -19,4 +21,4 @@ RUN echo "8.8.8.8" >> /etc/resolv.conf && \
 EXPOSE 3000
 
 # Run command
-CMD ["json-server", "--watch", "./fakeApi/fakeApi.json"]
+ENTRYPOINT ["json-server", "-H", "0.0.0.0", "fakeApi.json"]

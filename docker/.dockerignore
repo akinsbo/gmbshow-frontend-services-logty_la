@@ -2,22 +2,59 @@
 
 # others
 .cache
-coverage
 bdd
-.dustbin
 docs
 README.md
+
+# docker
+/docker
+docker-compose.yml
 
 # build
 dist
 node_modules
 npm-debug.log
-# .storybook
-# stories
+.storybook
+stories
 # package-lock.json
-
-# test
-__mocks__
 
 # editor
 .vscode
+.idea
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# auto-generated
+.cache/
+
+# Mac files
+.DS_Store
+
+# Yarn
+yarn-error.log
+.pnp/
+.pnp.js
+# Yarn Integrity file
+.yarn-integrity
+
+# others
+.dustbin
+dustbin
+.todo
+.sonarlint
+.zsh_history\r
+*.mp4
+*.tar
+
+# storybook
+storybook-static
+.out
+
+# test
+coverage
+__mocks__

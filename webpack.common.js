@@ -1,6 +1,6 @@
 "use strict"
 
-const CleanWebpackPlugin = require("clean-webpack-plugin")
+const {CleanWebpackPlugin} = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin")
 const webpack = require("webpack")
@@ -15,13 +15,14 @@ const fs = require("fs-extra")
 const BUILD_DIR = path.resolve(__dirname, "./dist")
 const PUBLIC_DIR = path.resolve(__dirname, "./public")
 const GENERATED_ICONS_DIR = "icons"
+const chalk = require('chalk')
 
 const getEnvKeys = async env => {
 
   let envKeys = {}
 
   if (env && env.ENVIRONMENT) {
-    console.log(env.ENVIRONMENT) // true
+    console.log(chalk.blue(`env.ENVIRONMENT = ${env.ENVIRONMENT}`)) // true
     /************************************* */
     /** Environment Variable file setting */
     // Get the root path (assuming your webpack config is in the root of your project!)
@@ -42,7 +43,7 @@ const getEnvKeys = async env => {
         // We're concatenating the environment name to our filename to specify the correct env file!
         const exists = await fs.pathExists(file)
         if (exists) {
-          console.log(`%c Detected env file exists at ${file} %s`, 'color: #00FF00')
+          console.log(chalk.green(`Detected env file exists at ${file} \%s`))
           return file
         }
       }
@@ -67,7 +68,7 @@ const getEnvKeys = async env => {
     // call dotenv and it will return an Object with a parsed key 
     const fileEnv = dotenv.config({ path: finalPath }).parsed
 
-    console.log(`Using env file at ${finalPath}`)
+    console.log(chalk.blue(`Using env file at ${finalPath}`))
 
     // reduce it to a nice object, the same as before (but with the variables from the file)
     envKeys = Object.keys(fileEnv).reduce((prev, next) => {

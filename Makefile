@@ -5,13 +5,11 @@ build:
 	npm run build
 	npm run serve
 
-bddac:
-	cd bdd
-	npm run cypress:run
+bdd:
+	npm run acceptance-test
 
-open:
-	cd bdd
-	npm run cypress:open
+bdd-open:
+	npm run acceptance-test:open
 
 story:
 	npm run storybook
@@ -34,3 +32,7 @@ bdd-docker:
 # Serve fake API
 api:
 	npm run json:server
+
+# Generate data
+data:
+	npm run generate-fake-data 

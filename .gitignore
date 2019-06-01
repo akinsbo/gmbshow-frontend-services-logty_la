@@ -51,3 +51,4 @@ storybook-static
 
 # test
 coverage
+# ./src/utils/api/fakeApi.json

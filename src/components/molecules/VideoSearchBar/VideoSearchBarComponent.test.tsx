@@ -4,7 +4,7 @@ import enzymeAdapterReact16 from "enzyme-adapter-react-16"
 import "jest-enzyme"
 import * as React from "react"
 import * as renderer from "react-test-renderer"
-import VideoSearchBar from "./VideoSearchBar"
+import VideoSearchBarComponent from "./VideoSearchBarComponent"
 
 Enzyme.configure({
   adapter: new enzymeAdapterReact16()
@@ -29,7 +29,7 @@ const createTestProps = () => ({
 describe("VideoSearchBar", () => {
   it("renders correctly", () => {
     const tree = renderer.create(
-      <VideoSearchBar {...props} />
+      <VideoSearchBarComponent {...props} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -37,7 +37,7 @@ describe("VideoSearchBar", () => {
 
 beforeEach(() => {
   props = createTestProps()
-  wrapper = Enzyme.mount(<VideoSearchBar {...props} />)
+  wrapper = Enzyme.mount(<VideoSearchBarComponent {...props} />)
 })
 
 describe("structure", () => {

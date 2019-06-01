@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     inputInput: {
         padding: theme.spacing(1, 1, 1, 7),
         transition: theme.transitions.create('width'),
-        width: '100%',
+        // width: '100%',
         [theme.breakpoints.up('md')]: {
             width: 200,
         },
@@ -63,24 +63,25 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 })
 )
 
-interface VideoSearchBarProps {
+interface VideoSearchBarComponentProps {
     options?: string[] | GroupType<string>[] | undefined
     value?: ValueType<string>
     onChange?: ((value: ValueType<string>, action: ActionMeta) => void) | undefined
 }
 // TODO: Use material design search bar to make this component
-const VideoSearchBar = (props: VideoSearchBarProps) => {
+const VideoSearchBarComponent = (props: VideoSearchBarComponentProps) => {
     const classes = useStyles()
+    // const {grow, search, searchIcon} = classes
     const { grow, search, searchIcon, inputRoot, inputInput } = classes
     const { options, onChange, value } = props
     return (
         <React.Fragment>
             <div className={`video_search_bar ${grow}`}>
-                <div className={search}>
-                    <div className={searchIcon}>
+                <div className={search}> 
+                    <div className={searchIcon}> 
                         <SearchIcon />
                     </div>
-                    <Select
+                     <Select
                         placeholder="Search…"
                         classes={{
                             input: inputInput,
@@ -89,15 +90,16 @@ const VideoSearchBar = (props: VideoSearchBarProps) => {
                         options={options}
                         onChange={onChange}
                         value={value}
-                    />
-                </div>
-            </div>
+                     /> 
+                 </div>
+             </div>
         </React.Fragment>
     )
 }
 
-VideoSearchBar.defaultProps = {
+VideoSearchBarComponent.defaultProps = {
     options: {},
+    onChange: {},
     value: null
 }
-export default VideoSearchBar
+export default VideoSearchBarComponent

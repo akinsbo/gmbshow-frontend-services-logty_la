@@ -1,7 +1,7 @@
 
 import * as React from 'react'
 import { ValueType} from 'react-select/lib/types'
-import VideoSearchBar from './VideoSearchBar'
+import VideoSearchBarComponent from './VideoSearchBarComponent'
 
 
 interface VideoSearchBarContainerState {
@@ -30,7 +30,7 @@ class VideoSearchBarContainer extends React.Component<{}, VideoSearchBarContaine
 
         return (
             <div>
-                <VideoSearchBar options= {['test']} onChange={this.handleChange} value={selectedVideo}/>
+                <VideoSearchBarComponent options= {['test']} onChange={this.handleChange} value={selectedVideo}/>
             </div>
         )
     }

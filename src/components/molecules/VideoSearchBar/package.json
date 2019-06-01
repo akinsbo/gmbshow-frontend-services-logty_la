@@ -2,7 +2,7 @@
     "name": "video_search_bar",
     "version": "1.0.0",
     "description": "VideoSearchBar component",
-    "main": "VideoSearchBar.tsx",
+    "main": "VideoSearchBarContainer.tsx",
     "scripts": {
         "test": "jest"
     },

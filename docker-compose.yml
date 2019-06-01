@@ -1,16 +1,27 @@
 version: "3.3"
 services:
 
-  api:
+  fake_api:
     build:
       context: .
       dockerfile: ./docker/fakeApi.Dockerfile
+    # image: mbshow_fakeAPI_image
+    container_name: mbshow_fakeAPI_server
     ports:
      - "3000:3000"
+    volumes:
+     - ./src/utils/api/fakeApi.json:/fakeApi/fakeApi.json
+    restart: on-failure
 
-  app:
+  web:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
+    # image: mbshow_frontend_image
+    container_name: mbshow_frontend_app_server
+    links:
+     - fake_api
+    #  -  json-server
     ports:
      - "8003:80"
+    restart: always

@@ -17,16 +17,17 @@ const AppRouter = () => {
     <div className={styles.hello}>
       {/* <HeadModifier /> */}
       <HeadModifier title={title} author={author} link={link} theme_color={theme_color} />
+      <Router basename="/calendar" />
       <Router>
         <nav>
           <Link to="/">HomePage</Link>
-          <Link to="/page2">SecondPage</Link>
-          <Link to="/page3">ThirdPage</Link>
+          <Link to="/page2/">SecondPage</Link>
+          <Link to="/page3/">ThirdPage</Link>
         </nav>
 
-        <Route exact={true} path="/" component={HomePage} />
-        <Route path="/page2" component={SecondPage} />
-        <Route path="/page3" component={ThirdPage} />
+        <Route path="/" exact={true} component={HomePage} />
+        <Route path="/page2/" component={SecondPage} />
+        <Route path="/page3/" component={ThirdPage} />
 
       </Router>
       <div>

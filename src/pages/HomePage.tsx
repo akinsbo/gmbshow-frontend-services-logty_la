@@ -3,7 +3,7 @@ import * as React from "react"
 import Base from '../components/templates/Base'
 import HeadModifier from "../core/HeadModifier"
 import duyonoStonePng from "../images/duyono-stone.png"
-import withRoot from '../utils/theme/withRoot'
+// import withRoot from '../utils/theme/withRoot'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -38,4 +38,5 @@ const HomePage = () => {
   )
 }
 
-export default withRoot(HomePage)
+// export default withRoot(HomePage)
+export default HomePage

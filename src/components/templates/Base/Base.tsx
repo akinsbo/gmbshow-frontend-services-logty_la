@@ -2,6 +2,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // tslint:disable-next-line:import-name
 import * as React from 'react'
 import Header from '../../organisms/Header'
+import VideoSearchBar from '../../molecules/VideoSearchBar'
 
 // create a styles object using a theme. The createStyles function is
 // needed to placate the TS compiler. 
@@ -37,7 +38,9 @@ const Base = () => {
     return (
         <React.Fragment>
             <div className={classes.grow}>
-                <Header />               
+                <Header />  
+                <VideoSearchBar/>       
+                Loading Base ...      
             </div>
         </React.Fragment>
     )
