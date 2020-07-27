@@ -6,7 +6,7 @@ import axios, {
 import { API_BASE_URL, VIDEO_URL } from '../../../env'
 
 export const apiBaseUrl: string = API_BASE_URL || ''
-export const videoListUrl: string = VIDEO_URL || '/video'
+export const videoListUrl: string = VIDEO_URL || '/user'
 
 // Typed methods
 interface Video {

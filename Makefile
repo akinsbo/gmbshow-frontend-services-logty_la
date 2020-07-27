@@ -24,15 +24,17 @@ docker:
 
 local-docker:
 	bash build.sh
-	
+
 bdd-docker:
 	docker build --rm -f "bdd/Dockerfile" -t bdd:latest bdd
 	docker run --rm -d bdd:latest
 
 # Serve fake API
 api:
-	npm run json:server
+	echo "please first run 'npm install -g json-serve' to install json-server"
+	npm run generate-fake-data
+	npm run json:server --watch ./src/utils/api/data/fakeApi.json --port 3001
 
 # Generate data
 data:
-	npm run generate-fake-data 
+	npm run generate-fake-data

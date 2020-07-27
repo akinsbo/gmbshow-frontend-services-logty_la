@@ -1,0 +1,55 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "eslint:latest",
+        "eslint:recommended",
+        "eslint-react",
+        "eslint-config-airbnb",
+        "eslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+        "interface-name": false,
+        "semicolon": [
+            true,
+            "never"
+        ],
+        "member-access": [
+            false
+        ],
+        "ordered-imports": [
+            true
+        ],
+        "no-console": [
+            false
+        ],
+        "no-var-requires": true,
+        "no-implicit-dependencies": [
+            true,
+            "dev"
+        ],
+        "no-implicit-submodule": [
+            false
+        ],
+        "no-submodule-imports": [
+            false
+        ]
+    },
+    "rulesDirectory": [],
+    "include": [
+        "src",
+        "cypress/support"
+    ],
+    "linterOptions": {
+        "exclude": [
+            ".cache",
+            "node_modules/**",
+            "dist",
+            "public",
+            "scripts",
+            "tmp",
+            "config/**/*.js",
+            "coverage/lcov-report/*.js"
+        ]
+    }
+}

@@ -45,6 +45,7 @@
         "jest",
         "src/setupTests.tsx",
         "bdd",
-        "cypress-cucumber"
+        "cypress-cucumber",
+        ".dustbin"
     ]
 }

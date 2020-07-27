@@ -1,3 +1,6 @@
+/**
+ * This class 
+ */
 import * as React from "react"
 // tslint:disable-next-line:import-name
 import { Helmet } from "react-helmet-async"

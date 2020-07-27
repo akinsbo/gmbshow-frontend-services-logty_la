@@ -1,7 +1,7 @@
 module.exports = {
     "type": "object",
     "properties": {
-        "videos": {
+        "user": {
             "type": "array",
             "minItems": 100,
             "maxItems": 200,
