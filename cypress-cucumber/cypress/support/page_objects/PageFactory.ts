@@ -1,5 +1,5 @@
 import makeHomePage from "./pages/HomePage"
-import { WebPage } from "featureTypes"
+import { WebPage } from  "../../types"
 
 export default function PageFactory(pageToMake: string): WebPage {
   switch (pageToMake.toLowerCase()) {

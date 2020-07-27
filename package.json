@@ -19,7 +19,8 @@
         "acceptance-test:install": "cd cypress-cucumber && npm install && npm run cypress:run",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook -c .storybook -o .out",
-        "generate-fake-data": "node ./src/utils/api/data/jsf.js"
+        "generate-fake-data": "node ./src/utils/api/data/jsf.js",
+        "commit": "npx git-cz"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.0",

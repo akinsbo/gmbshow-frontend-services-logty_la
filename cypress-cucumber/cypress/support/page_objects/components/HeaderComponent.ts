@@ -18,7 +18,7 @@
  */
 
 import makeBaseComponent from "./BaseComponent"
-import { Component, Subcomponent } from "featureTypes"
+import { Component, Subcomponent } from "../../../types"
 
 /**
  * This function generates the admin header component

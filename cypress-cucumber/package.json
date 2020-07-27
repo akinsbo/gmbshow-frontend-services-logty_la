@@ -10,13 +10,14 @@
         "cypress:open": "cypress open"
     },
     "devDependencies": {
-        "@cypress/webpack-preprocessor": "^5.4.2",
         "@types/cucumber": "^6.0.1",
+        "@types/cypress-cucumber-preprocessor": "^1.14.1",
         "cypress": "^4.11.0",
         "cypress-cucumber-preprocessor": "^2.5.4",
-        "path": "^0.12.7",
-        "ts-loader": "^8.0.1",
-        "typescript": "^3.9.7",
-        "webpack": "^4.44.0"
+        "tsify": "^5.0.0",
+        "typescript": "^3.9.7"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true
     }
 }

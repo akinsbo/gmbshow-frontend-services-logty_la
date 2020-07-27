@@ -1,4 +1,4 @@
-import { Component } from "featureTypes"
+import { Component } from "../../../types"
 
 export default function makeBaseComponent(): Component {
   /** Object list of generic properties all components could have */

@@ -3,7 +3,7 @@
 import { Given, Then } from "cypress-cucumber-preprocessor/steps"
 // import { WebPage, BaseWebPage, Element, Url } from "../../../types"
 // tslint:disable-next-line: no-implicit-dependencies
-import { WebPage } from "featureTypes"
+import { WebPage } from "../../types"
 import PageFactory from "../../support/page_objects/PageFactory"
 
 Given("the user is on the {string}", (webpage: string) => {

@@ -1,6 +1,6 @@
 import makeHeaderComponent from "./components/HeaderComponent"
 import makeComponent from "./components/BaseComponent"
-import { Component } from "featureTypes"
+import { Component } from "../../types"
 
 export default function ComponentFactory(componentToMake: string): Component {
   switch (componentToMake.toLowerCase()) {

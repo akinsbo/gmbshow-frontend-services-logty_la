@@ -1,9 +1,6 @@
 {
     "compilerOptions": {
         "baseUrl": "/",
-        "paths": {
-            "featureTypes": ["types"]
-        },
         "outDir": "dist",
         "module": "commonjs",
         "target": "es5",
@@ -22,11 +19,12 @@
         "noUnusedLocals": true,
         "noImplicitThis": true,
         "noImplicitAny": true,
-        "importHelpers": true,
+        "importHelpers": false,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
         "keyofStringsOnly": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "types": ["cypress", "node"]
     },
     "exclude": [
         "node_modules",

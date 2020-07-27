@@ -7,7 +7,7 @@
  *
  */
 
-import { BaseWebPage, Route, Url } from "featureTypes"
+import { BaseWebPage, Route, Url } from  "../../../types"
 type BasePage = {
   apiUrl: Url,
   baseUrl: Url,

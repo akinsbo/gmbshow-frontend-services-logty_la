@@ -16,7 +16,7 @@
  * - Support for multiple methods
  */
 import makePage from "./BasePage"
-import { WebPage, BaseWebPage, FeaturesList, Route } from "featureTypes"
+import { WebPage, BaseWebPage, FeaturesList, Route } from "../../../types"
 import componentFactory from "../ComponentFactory"
 
 export default function makeHomePage(relPath: Route): WebPage {
