@@ -11,8 +11,8 @@ bdd:
 bdd-open:
 	npm run acceptance-test:open
 
-story:
-	npm run storybook
+stylesheet:
+	npx styleguidist server
 
 # Serve storybook as an independent app
 story-build:
