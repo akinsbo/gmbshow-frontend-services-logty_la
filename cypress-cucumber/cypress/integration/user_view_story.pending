@@ -1,0 +1,14 @@
+Feature: Inspiring users with stories of achievers
+    As a remem user
+    I want to be able to view stories of inspirational people I am reminded of
+    So that I can see what adversities someone overcame
+
+    @focus
+    Scenario: Viewing a story, coming from Social Media
+        Given the user is on the story "Storypage"
+        Then the user should see the story of the person
+
+# organizations can sponsor
+# A rating site should be announced
+# You can promote a message to get people to show their respects as well.
+# Extra flowers shold be placed in a store

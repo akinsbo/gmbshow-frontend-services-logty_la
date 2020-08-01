@@ -1,0 +1,15 @@
+Feature: Inspiring users with stories of achievers
+    As a remem user
+    I want to be able to contirbute to stories that inspire me.
+    So that I can remember someone with flowers/something to be donated to their charities
+
+    @focus
+    Scenario: Viewing a story, coming from Social Media
+        Given the user is on the story "Storypage"
+        When the user selects "Lay flower in memory of"
+        Then the flower laid should appear surrounding the person
+
+# organizations can sponsor
+# A rating site should be announced
+# You can promote a message to get people to show their respects as well.
+# Extra flowers shold be placed in a store

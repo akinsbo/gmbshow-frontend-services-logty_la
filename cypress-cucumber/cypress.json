@@ -1,4 +1,4 @@
 {
     "testFiles": "**/**/*.feature",
-    "ignoreTestFiles": "*.ts"
+    "baseUrl": "http://localhost:9000"
 }

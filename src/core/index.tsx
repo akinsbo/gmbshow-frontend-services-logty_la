@@ -11,12 +11,12 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
 import { HelmetProvider } from "react-helmet-async"
-import AppRouter from "./AppRouter"
+import App from "./App"
 import registerServiceWorker from "./registerServiceWorker"
 
 ReactDOM.hydrate(
   <HelmetProvider>
-    <AppRouter  />
+    <App />
   </HelmetProvider>,
   document.getElementById("root")
 )

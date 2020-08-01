@@ -1,7 +1,7 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import * as React from "react"
 import Base from '../components/templates/Base'
-import HeadModifier from "../core/HeadModifier"
+import HtmlHeadModifier from "../core/HtmlHeadModifier"
 import duyonoStonePng from "../images/duyono-stone.png"
 // import withRoot from '../utils/theme/withRoot'
 
@@ -28,7 +28,7 @@ const HomePage = () => {
     <React.Fragment>
       <div className={`application ${grow}`}>
         <Base />
-        <HeadModifier title="Homepage" />
+        <HtmlHeadModifier title="Homepage" />
         {/* <Label>Wow</Label> */}
         <h1>This is the Home page</h1>
 
