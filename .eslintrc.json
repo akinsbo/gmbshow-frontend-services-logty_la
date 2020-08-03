@@ -50,6 +50,16 @@
             "tmp",
             "config/**/*.js",
             "coverage/lcov-report/*.js"
-        ]
+        ],
+        "env": {
+            "es6": true,
+            "browser": true,
+            "node": true
+          },
+          "plugins": ["import"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  }
     }
 }
