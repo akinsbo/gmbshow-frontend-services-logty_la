@@ -212,8 +212,8 @@ module.exports = env => {
         module: {
             rules: [
                 // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
+                // This piece of code handles ts first them es6
                 { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-
                 // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
                 { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
                 {

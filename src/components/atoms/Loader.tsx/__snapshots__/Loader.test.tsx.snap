@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoaderContainer should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+    >
+      <div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+    >
+      <div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+        <div
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

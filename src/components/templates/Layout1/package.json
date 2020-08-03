@@ -1,14 +1,14 @@
 {
-    "name": "base",
+    "name": "Layout1",
     "version": "1.0.0",
-    "description": "Base component",
-    "main": "Base.tsx",
+    "description": "Layout1 component",
+    "main": "Layout1.tsx",
     "scripts": {
         "test": "jest"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/src/components/atoms/Base"
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/src/components/atoms/Layout1"
     },
     "keywords": [
         "Base",

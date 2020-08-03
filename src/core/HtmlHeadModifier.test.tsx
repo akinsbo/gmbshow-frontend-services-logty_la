@@ -1,8 +1,7 @@
 
 import * as React from "react"
-import '@testing-library/jest-dom'
+import { render } from '@testing-library/react'
 import { HelmetProvider } from "react-helmet-async"
-import * as renderer from "react-test-renderer"
 import HtmlHeadModifier from "./HtmlHeadModifier"
 
 const siteDataJson = {
@@ -17,12 +16,12 @@ const siteDataJson = {
 
 describe("HtmlHeadModifier", () => {
     it("should render", () => {
-        const renderWrapper = renderer.create(
+        const {container} = render(
             <HelmetProvider>
                 <HtmlHeadModifier {...siteDataJson} />
             </HelmetProvider>
         )
-        expect(renderWrapper).toMatchSnapshot()
+        expect(container).toMatchSnapshot()
     })
 
 })

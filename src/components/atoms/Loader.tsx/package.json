@@ -1,0 +1,19 @@
+{
+    "name": "Loader",
+    "version": "1.0.0",
+    "description": "Loader component",
+    "main": "Loader.tsx",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akinsbo/gmbshow-frontend-services-logty_la/src/components/atoms/Loader"
+    },
+    "keywords": [
+        "header",
+        "component"
+    ],
+    "author": "Olaolu Akinsete",
+    "license": "ISC"
+}

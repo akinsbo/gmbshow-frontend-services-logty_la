@@ -1,7 +1,7 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles' 
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // tslint:disable-next-line:import-name
 import * as React from 'react'
-import Header from '../../organisms/Header'
+import Header from '../../organisms/Header/Header'
 // import VideoSearchBar from '../../molecules/VideoSearchBar'
 
 // create a styles object using a theme. The createStyles function is
@@ -30,19 +30,21 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 )
 
-// export interface HeaderProps extends WithStyles<typeof styles> { }
 
-const Base = () => {
+// export interface HeaderProps extends WithStyles<typeof styles> { }
+// Take children as props and wrap them
+const Layout1 = (props: { children: JSX.Element[] | JSX.Element }) => {
     const classes = useStyles()
 
     return (
-        <React.Fragment>
+        <React.Fragment >
             <div className={classes.grow}>
                 <Header />
                 Loading Base ...
+                {props.children}
             </div>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 
-export default Base
+export default Layout1
