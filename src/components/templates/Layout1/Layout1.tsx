@@ -33,7 +33,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 // export interface HeaderProps extends WithStyles<typeof styles> { }
 // Take children as props and wrap them
-const Layout1 = (props: { children: JSX.Element[] | JSX.Element }) => {
+// const Layout1 = (props: { children: JSX.Element[] | JSX.Element | React.ReactNode}) => {
+const Layout1 = (props: { children: React.ReactNode}) => {
+
     const classes = useStyles()
 
     return (

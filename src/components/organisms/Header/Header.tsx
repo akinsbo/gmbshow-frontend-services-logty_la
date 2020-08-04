@@ -57,7 +57,7 @@ const Header = (props: HeaderProps) => {
 
     return (
         <React.Fragment>
-            <div className={`header ${grow}`}>
+            <div className={`header ${grow}`} data-cy="header">
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton

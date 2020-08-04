@@ -1,11 +1,8 @@
 {
     "compilerOptions": {
-        "baseUrl": "cypress",
+        "baseUrl": "./",
         "paths": {
-            "*": ["types/*"],
-            "featureTypes": [
-                "types"
-            ]
+            "test-utils": ["./test-utils"]
         },
         "outDir": "dist",
         "module": "esnext",

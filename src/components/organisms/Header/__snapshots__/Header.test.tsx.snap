@@ -4,6 +4,7 @@ exports[`Header renders correctly 1`] = `
 <div>
   <div
     class="header makeStyles-grow-1"
+    data-cy="header"
   >
     <header
       class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"

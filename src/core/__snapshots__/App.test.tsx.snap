@@ -26,6 +26,7 @@ exports[`App should render 1`] = `
     >
       <div
         class="header makeStyles-grow-6"
+        data-cy="header"
       >
         <header
           class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary MuiPaper-elevation4"

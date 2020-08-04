@@ -1,7 +1,6 @@
 
 import * as React from "react"
-import { render } from '@testing-library/react'
-
+import { render } from '../../../../test-utils'
 import Label from "./Label";
 
 describe("Label", () => {
