@@ -14,11 +14,6 @@ bdd-open:
 stylesheet:
 	npx styleguidist server
 
-# Serve storybook as an independent app
-story-build:
-	npm run build-storybook
-	npx serve .
-
 docker:
 	docker build --rm -f "local.Dockerfile" -t logty_la:latest .
 
@@ -38,3 +33,6 @@ api:
 # Generate data
 data:
 	npm run generate-fake-data
+
+test:
+	npm run jest

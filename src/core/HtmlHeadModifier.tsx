@@ -27,7 +27,7 @@ export interface HtmlHeadModifierProps {
 // 'AppRouterProps' describes the shape of props.
 // State is never set so we use the '{}' type.
 const HtmlHeadModifier = ({link,title}: HtmlHeadModifierProps = APP_DATA.siteMetadata) => {
-
+    console.log(APP_DATA.siteMetadata)
     return (
         // Links would be in another file
         < div >

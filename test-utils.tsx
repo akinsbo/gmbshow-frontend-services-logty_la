@@ -3,6 +3,7 @@ import { render, queries } from '@testing-library/react'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { I18nextProvider } from 'react-i18next'
+import { HelmetProvider } from 'react-helmet-async'
 import defaultStrings from './i18n/en-x-default'
 import * as customQueries from './custom-queries'
 import grey from '@material-ui/core/colors/grey'
@@ -27,15 +28,18 @@ const theme = createMuiTheme({
 })
 
 const AllTheProviders = ({ children }: any) =>
-    <ThemeProvider theme={theme} >
-        <I18nextProvider i18n={defaultStrings} >
-            {children}
-        </I18nextProvider>
-    </ThemeProvider >
+    <HelmetProvider>
+        <ThemeProvider theme={theme} >
+            <I18nextProvider i18n={defaultStrings} >
+                {children}
+            </I18nextProvider>
+        </ThemeProvider >
+    </HelmetProvider>
 
-
-const customRender = (ui: any, options = {}) =>
+const customRender = (ui: any, options = {}) => {
     render(ui, { wrapper: AllTheProviders, queries: { ...queries, ...customQueries }, ...options })
+
+}
 
 // re-export everything
 export * from '@testing-library/react'

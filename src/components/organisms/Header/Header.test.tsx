@@ -4,7 +4,7 @@ import Header from "./Header"
 
 describe("Header", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const container = render(
       <Header />
     )
     expect(container).toMatchSnapshot()

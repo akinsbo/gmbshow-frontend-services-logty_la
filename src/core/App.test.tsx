@@ -6,7 +6,7 @@ import App from "./App"
 
 describe("App", () => {
   it("should render", () => {
-    const {container} = render(
+    const container = render(
       <HelmetProvider>
         <Router>
           <App />

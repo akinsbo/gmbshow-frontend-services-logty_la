@@ -5,7 +5,11 @@
         "eslint:recommended",
         "eslint-react",
         "eslint-config-airbnb",
-        "eslint-config-prettier"
+        "eslint-config-prettier",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+        "jsx-a11y"
     ],
     "jsRules": {},
     "rules": {

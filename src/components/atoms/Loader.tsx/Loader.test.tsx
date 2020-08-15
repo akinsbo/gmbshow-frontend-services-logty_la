@@ -5,8 +5,8 @@ import LoaderContainer from './LoaderContainer'
 
 describe('LoaderContainer', () => {
     it('should take a snapshot', () => {
-        const { asFragment } = render(<LoaderContainer loading={true} />)
-        expect(asFragment()).toMatchSnapshot()
+        const asFragment = render(<LoaderContainer loading={true} />)
+        expect(asFragment).toMatchSnapshot()
     })
 });
 

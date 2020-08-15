@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage"
 import SecondPage from "../pages/SecondPage"
 import ThirdPage from "../pages/ThirdPage"
-import {APP_DATA} from "../../env"
+import { APP_DATA } from "../../env"
 import * as styles from "./App.css"
 import HtmlHeadModifier from "./HtmlHeadModifier"
 
 // State is never set so we use the '{}' type.
 // tslint:disable-next-line:variable-name
 const AppRouter = () => {
-  const {title, author, link, theme_color} = APP_DATA.siteMetadata
+  const { title, author, link, theme_color } = APP_DATA.siteMetadata
 
   return (
     // Links would be in another file

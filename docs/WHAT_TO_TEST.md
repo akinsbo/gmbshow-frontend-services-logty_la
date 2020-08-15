@@ -25,3 +25,49 @@ Anything that operates on an array could have boundary cases — an empty array,
 ## Testing Scenarios (with react testing library)
 
 Please see this [comprehensive guide]("https://github.com/kentcdodds/react-testing-library-examples") by Kevin Dodds
+
+## Accessibility
+
+Here are the aria roles that help in accessibility
+Map {
+  '{"name": "article"}' => Set { 'article' },
+  '{"name": "button"}' => Set { 'button' },
+  '{"name": "td"}' => Set { 'cell', 'gridcell' },
+  '{"name": "input", "attributes": [ {"name": "type", "value": "checkbox"}] }' => Set { 'checkbox' },
+  '{"name": "th"}' => Set { 'columnheader' },
+  '{"name": "select"}' => Set { 'combobox', 'listbox' },
+  '{"name": "menuitem"}' => Set { 'command', 'menuitem' },
+  '{"name": "dd"}' => Set { 'definition' },
+  '{"name": "figure"}' => Set { 'figure' },
+  '{"name": "form"}' => Set { 'form' },
+  '{"name": "table"}' => Set { 'grid', 'table' },
+  '{"name": "fieldset"}' => Set { 'group' },
+  '{"name": "h1"}' => Set { 'heading' },
+  '{"name": "h2"}' => Set { 'heading' },
+  '{"name": "h3"}' => Set { 'heading' },
+  '{"name": "h4"}' => Set { 'heading' },
+  '{"name": "h5"}' => Set { 'heading' },
+  '{"name": "h6"}' => Set { 'heading' },
+  '{"name": "img"}' => Set { 'img' },
+  '{"name": "a"}' => Set { 'link' },
+  '{"name": "link"}' => Set { 'link' },
+  '{"name": "ol"}' => Set { 'list' },
+  '{"name": "ul"}' => Set { 'list' },
+  '{"name": "li"}' => Set { 'listitem' },
+  '{"name": "nav"}' => Set { 'navigation' },
+  '{"name": "option"}' => Set { 'option' },
+  '{"name": "input", "attributes": [ {"name": "type", "value": "radio"}] }' => Set { 'radio' },
+  '{"name": "frame"}' => Set { 'region' },
+  '{"name": "rel"}' => Set { 'roletype' },
+  '{"name": "tr"}' => Set { 'row' },
+  '{"name": "tbody"}' => Set { 'rowgroup' },
+  '{"name": "tfoot"}' => Set { 'rowgroup' },
+  '{"name": "thead"}' => Set { 'rowgroup' },
+  '{"name": "th", "attributes": [ {"name": "scope", "value": "row"}] }' => Set { 'rowheader' },
+  '{"name": "input", "attributes": [ {"name": "type", "value": "search"}] }' => Set { 'searchbox' },
+  '{"name": "hr"}' => Set { 'separator' },
+  '{"name": "dt"}' => Set { 'term' },
+  '{"name": "dfn"}' => Set { 'term' },
+  '{"name": "textarea"}' => Set { 'textbox' },
+  '{"name": "input", "attributes": [ {"name": "type", "value": "text"}] }' => Set { 'textbox' }
+}
