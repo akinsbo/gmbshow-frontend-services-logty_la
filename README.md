@@ -9,7 +9,7 @@ Apply [this fix]("https://stackoverflow.com/questions/12594541/npm-global-instal
 
 Please see the Makefile for possible services and the ports they run on. For example, Stylefuidist works on port 6060.
 
-## Acceptance Testing 
+## Acceptance Testing
 
 To conduct acceptance testing, use the following:
 
@@ -20,3 +20,8 @@ To conduct acceptance testing, use the following:
 
 ```
 
+## Production Preparation
+
+- When serving the app in production, ensure to perform a check on Chrome's Lighthouse extension.
+
+- Set the webserver configuration to serves brotli extension `.br` files rather than `.js` files.

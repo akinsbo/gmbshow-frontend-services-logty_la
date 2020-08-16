@@ -4,10 +4,10 @@ const webpack = require("webpack")
 
 // To minimize css
 const TerserPlugin = require('terser-webpack-plugin');
-// const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-    // To remove unused css
+
+// To remove unused css
 const path = require("path")
 const glob = require("glob")
 const PurgecssPlugin = require("purgecss-webpack-plugin")

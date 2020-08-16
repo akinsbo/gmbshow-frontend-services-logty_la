@@ -8,7 +8,7 @@ const path = require("path")
 const ManifestPlugin = require("webpack-manifest-plugin")
 const { InjectManifest } = require("workbox-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
-const BrotliGzipPlugin = require("brotli-gzip-webpack-plugin")
+const CompressionPlugin = require('compression-webpack-plugin');
 const dotenv = require('dotenv')
 const fs = require("fs-extra")
 
@@ -147,20 +147,17 @@ module.exports = env => {
                 "window.react": "React",
                 "window.React": "React"
             }),
-            new BrotliGzipPlugin({
-                asset: "[path].br[query]",
-                algorithm: "brotli",
+            new CompressionPlugin({
+                filename: '[path].br',
+                algorithm: 'brotliCompress',
                 test: /\.(js|css|html|svg)$/,
+                compressionOptions: {
+                    // zlib’s `level` option matches Brotli’s `BROTLI_PARAM_QUALITY` option.
+                    level: 11,
+                },
                 threshold: 10240,
                 minRatio: 0.8,
-                quality: 11
-            }),
-            new BrotliGzipPlugin({
-                asset: "[path].gz[query]",
-                algorithm: "gzip",
-                test: /\.(js|css|html|svg)$/,
-                threshold: 10240,
-                minRatio: 0.8
+                deleteOriginalAssets: false,
             }),
             //! Order is important: Since workbox revisions each file based on the content, it should be the last plugin called
             new InjectManifest({
