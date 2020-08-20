@@ -32,6 +32,7 @@
         "@types/react-select": "^3.0.15",
         "@types/webpack": "^4.41.21",
         "axios": "^0.19.2",
+        "babel-plugin-universal-import": "^4.0.2",
         "fs-extra": "^9.0.1",
         "i18next": "^19.6.3",
         "i18next-browser-languagedetector": "^6.0.0",
@@ -43,7 +44,8 @@
         "react-i18next": "^11.7.0",
         "react-jss": "^10.4.0",
         "react-router-dom": "^5.2.0",
-        "react-select": "^3.1.0"
+        "react-select": "^3.1.0",
+        "react-universal-component": "^4.0.1"
     },
     "devDependencies": {
         "@babel/core": "^7.11.0",
@@ -116,6 +118,7 @@
         "typescript": "^3.9.7",
         "uglifyjs-webpack-plugin": "^2.2.0",
         "uncss": "^0.17.3",
+        "universal-webpack": "^0.6.14",
         "url-loader": "^4.1.0",
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12",

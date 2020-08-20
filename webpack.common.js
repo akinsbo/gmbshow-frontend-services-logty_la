@@ -191,7 +191,8 @@ module.exports = env => {
                 maxInitialRequests: 50, // force HTTP2(HTTP1 allows max of 6)
                 maxAsyncRequests: 20, // for HTTP2
                 minSize: 0
-            }
+            },
+            usedExports: true,
         },
 
         // Enable sourcemaps for debugging webpack's output.

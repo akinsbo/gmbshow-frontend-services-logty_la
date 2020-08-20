@@ -16,7 +16,7 @@ CONTAINER_SNAPSHOT_DIR_NAME=${CONTAINER_NAME}-container
 CONTAINER_SNAPSHOT_ARCHIVE_NAME=${CONTAINER_SNAPSHOT_DIR_NAME}.tar
 VERBOSE=0
 
-usage() {rt
+usage() {
   echo -e "USAGE: ${PROG} [-ghvy] [-c CLI]"
 }
 
@@ -145,7 +145,7 @@ while [[ $# -ge 1 ]]; do
   esac
   shift
 done
-build 
+
 build
 }
 

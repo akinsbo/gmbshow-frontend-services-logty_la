@@ -18,7 +18,7 @@ docker:
 	docker build --rm -f "local.Dockerfile" -t logty_la:latest .
 
 local-docker:
-	bash build.sh
+	bash util.sh
 
 bdd-docker:
 	docker build --rm -f "bdd/Dockerfile" -t bdd:latest bdd

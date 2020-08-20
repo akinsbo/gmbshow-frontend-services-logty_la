@@ -45,7 +45,7 @@ module.exports = env => merge(common(env), {
                     enforce: true
                 }
             }
-        }
+        },
     },
     plugins: [
         // HashedModuleIdsPlugin plugin will cause hashes to be based on the relative path of the module
