@@ -1,9 +1,15 @@
-workbox.skipWaiting()
-workbox.clientsClaim()
+import { skipWaiting, clientsClaim } from 'workbox-core'
+// These JavaScript module imports need to be bundled:
+import { precacheAndRoute } from 'workbox-precaching'
+import { registerRoute } from 'workbox-routing'
+import { StaleWhileRevalidate } from 'workbox-strategies'
 
-workbox.routing.registerRoute(
-    new RegExp("http://localhost:3000"),
-    workbox.strategies.staleWhileRevalidate()
+skipWaiting()
+clientsClaim()
+
+registerRoute(
+    new RegExp("http://localhost:9000"),
+    new StaleWhileRevalidate()
 )
 
 //setup sample push
@@ -16,4 +22,4 @@ self.addEventListener("push", event => {
 })
 
 // workbox.precaching.precacheAndRoute(self.__precacheManifest)
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST)
+precacheAndRoute(self.__WB_MANIFEST)
