@@ -1,5 +1,9 @@
 "use strict"
 
+const nodeExternals = require('webpack-node-externals');
+const common = require("./webpack.common.js")
+const { merge } = require("webpack-merge")
+
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin")
@@ -12,20 +16,10 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const dotenv = require('dotenv')
 const fs = require("fs-extra")
 
+const BUILD_DIR = path.resolve(__dirname, "./dist/" + env.STYLE)
+const PUBLIC_DIR = path.resolve(__dirname, "./public/" + env.STYLE)
+const GENERATED_ICONS_DIR = "icons"
 const chalk = require('chalk')
-const { get } = require("http")
-
-
-// PATHS
-const set_paths = style => {
-    return {
-        app_name: style,
-        build_dir: path.resolve(__dirname, "./dist/" + style),
-        public_dir: path.resolve(__dirname, "./public/" + style),
-        generated_icons_dir: path.resolve(__dirname, "./public/" + style + "/icons"),
-        entrypoint_dir: path.resolve(__dirname, "./src/style/" + style)
-    }
-}
 
 const getEnvKeys = async env => {
 
@@ -92,12 +86,21 @@ const getEnvKeys = async env => {
 }
 
 module.exports = env => {
-    const getPaths = set_paths(env.STYLE)
+
     return {
         // mode: "development || "production",
-        entry: {
-            // As the output.path is the baseUrl, resolve ./src as it may actually be ../src instead
-            main: getPaths.entrypoint_dir + "/core/index.tsx"
+        // entry: {
+        //     // As the output.path is the baseUrl, resolve ./src as it may actually be ../src instead
+        //     main: './src/core/index.tsx'
+        // },
+        entry: './server/index.tsx',
+        target: 'node',
+
+        externals: [nodeExternals()],
+
+        output: {
+            path: path.resolve('server-build'),
+            filename: 'index.js'
         },
         plugins: [
             // The result of all the environment variables set in package.json
@@ -105,17 +108,17 @@ module.exports = env => {
             // with zero configuration, cleanWebpack plugin will clean output directory
             new CleanWebpackPlugin(),
             new ManifestPlugin({
-                fileName: getPaths.public_dir + "/asset-manifest.json" // Not to confuse with manifest.json(the webmanifest file)
+                fileName: PUBLIC_DIR + "/asset-manifest.json" // Not to confuse with manifest.json(the webmanifest file)
             }),
             new HtmlWebpackPlugin({
-                template: getPaths.public_dir + "/index.html"
+                template: PUBLIC_DIR + "/index.html"
             }),
             // new FaviconsWebpackPlugin("./src/images/logo.png"),
             new FaviconsWebpackPlugin({
                 // Your source logo
-                logo: getPaths.entrypoint_dir + "/images/logo.png",
+                logo: "./src/images/logo.png",
                 // The prefix for all image files (might be a folder or a name)
-                prefix: getPaths.generated_icons_dir + "/",
+                prefix: GENERATED_ICONS_DIR + "/",
                 // Emit all stats of the generated icons
                 emitStats: true,
                 // The name of the json containing all favicon information
@@ -128,7 +131,7 @@ module.exports = env => {
                 // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
                 background: "#fff",
                 // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
-                title: env.STYLE,
+                title: "Duyono App",
 
                 // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
                 icons: {
@@ -146,8 +149,8 @@ module.exports = env => {
             }),
             new CopyWebpackPlugin({
                 patterns: [{
-                    from: getPaths.generated_icons_dir, //for absolute path
-                    to: getPaths.build_dir
+                    from: PUBLIC_DIR + "/" + GENERATED_ICONS_DIR, //for absolute path
+                    to: BUILD_DIR
                 }],
             }),
             new webpack.ProvidePlugin({
@@ -171,8 +174,8 @@ module.exports = env => {
             }),
             //! Order is important: Since workbox revisions each file based on the content, it should be the last plugin called
             new InjectManifest({
-                swSrc: getPaths.entrypoint_dir + "/utils/sw.js",
-                swDest: getPaths.build_dir + "/sw.js" //where to output service worker in output.path parent directory
+                swSrc: "./src/sw.js",
+                swDest: "sw.js" //where to output service worker in output.path parent directory
                     // clientsClaim: true, //latest service worker should take over all clients as soon as activated
                     // skipWaiting: true // latest service worker should be active on entering waiting phase
             })
@@ -222,6 +225,10 @@ module.exports = env => {
                 // This piece of code handles ts first them es6
                 { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
                 // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+                {
+                    test: /\.js$/,
+                    use: 'babel-loader'
+                },
                 { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
                 {
                     test: /\.(png|svg|jpg|gif)$/,

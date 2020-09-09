@@ -1,9 +1,15 @@
 start:
-	npm run start
+	npm run start:twemd
 
 build:
-	npm run build
+	npm run build:twemd
 	npm run serve
+
+ssr:
+	@echo "content to run on port 8080"
+	@echo
+	npm run dev:ssr:twemd
+	npm run serve:ssr:twemd
 
 bdd:
 	npm run acceptance-test

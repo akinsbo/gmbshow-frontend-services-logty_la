@@ -5,6 +5,7 @@
 #  Build
 build
 dist
+server-build
 
 # Dependency directories
 node_modules/

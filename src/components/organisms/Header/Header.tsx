@@ -1,7 +1,7 @@
 import AppBar from '@material-ui/core/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import siteDataJson from "../../../utils/site-data.json"
+import { APP_DATA } from "../../../../env"
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 // tslint:disable-next-line:import-name
@@ -80,7 +80,7 @@ const Header = (props: HeaderProps) => {
         </React.Fragment>
     )
 }
-const {title} = siteDataJson
+const { title } = APP_DATA.siteMetadata
 
 Header.defaultProps = {
     title

@@ -12,18 +12,16 @@ const path = require("path")
 const glob = require("glob")
 const PurgecssPlugin = require("purgecss-webpack-plugin")
 const PATHS = {
-    src: path.join(__dirname, "/src")
+    src: path.join(__dirname, "/src/style/" + env.STYLE)
 }
 
-// Try the environment variable, otherwise use root
-const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 module.exports = env => merge(common(env), {
     mode: "production",
     output: {
         // hash content of files for cache to detect content change
         filename: "[name].[contenthash].bundle.js",
-        path: __dirname + "/dist"
+        path: __dirname + "/dist/" + env.STYLE
     },
     optimization: {
         minimize: true,
@@ -46,6 +44,7 @@ module.exports = env => merge(common(env), {
                 }
             }
         },
+        usedExports: true,
     },
     plugins: [
         // HashedModuleIdsPlugin plugin will cause hashes to be based on the relative path of the module

@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "logty_la",
+  "description": "",
+  "icons": {
+    "60": "/Users/olaoluakinsete/Documents/projects/private/gmbshow-frontend-services-logty_la/public/twemd/icons/firefox_app_60x60.png",
+    "128": "/Users/olaoluakinsete/Documents/projects/private/gmbshow-frontend-services-logty_la/public/twemd/icons/firefox_app_128x128.png",
+    "512": "/Users/olaoluakinsete/Documents/projects/private/gmbshow-frontend-services-logty_la/public/twemd/icons/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Olaolu Akinsete",
+    "url": null
+  }
+}

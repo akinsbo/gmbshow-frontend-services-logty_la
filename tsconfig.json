@@ -2,7 +2,9 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "test-utils": ["./test-utils"]
+            "test-utils": [
+                "./test-utils"
+            ]
         },
         "outDir": "dist",
         "module": "esnext",
@@ -42,7 +44,7 @@
         "jest",
         "src/setupTests.tsx",
         "bdd",
-        "cypress-cucumber",
+        "cypress-cucumber-twemd",
         ".dustbin"
     ]
 }
